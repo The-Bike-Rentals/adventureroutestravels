@@ -1,0 +1,1160 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>   Adventure Routes Travels | Unexplored Spiti Tour Package     </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/chosen.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="assets/css/plugins/dropzone.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nouislider.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome-pro.css">
+    <link rel="stylesheet" href="assets/css/vendor/icomoon.css">
+    <link rel="stylesheet" href="assets/css/vendor/spacing.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+
+
+<!-------------------------------holiday----------------------------------->
+
+<script language="JavaScript" type="text/JavaScript">
+
+ function validfield(strval)
+
+{
+
+var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+
+var checkStr = strval;
+
+var allValid = true;
+
+for (i = 0;  i < checkStr.length;  i++)
+
+{
+
+ch = checkStr.charAt(i);
+
+for (j = 0;  j < checkOK.length;  j++)
+
+if (ch == checkOK.charAt(j))
+
+break;
+
+if (j == checkOK.length)
+
+{
+
+allValid = false;
+
+break;
+
+}
+
+}
+
+    if (!allValid)
+
+    {
+
+      return false;
+
+    }
+
+    else
+
+    {
+
+      return true;
+
+    }
+
+}
+
+function emailCheck (emailStr) {
+
+
+
+var emailPat=/^(.+)@(.+)$/
+
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"
+
+var validChars="\[^\\s" + specialChars + "\]"
+
+var quotedUser="(\"[^\"]*\")"
+
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/
+
+var atom=validChars + '+'
+
+var word="(" + atom + "|" + quotedUser + ")"
+
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$")
+
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$")
+
+var matchArray=emailStr.match(emailPat)
+
+if (matchArray==null) {
+
+      alert("Email address seems incorrect (check @ and .'s)")
+
+    return false
+
+}
+
+var user=matchArray[1]
+
+var domain=matchArray[2]
+
+
+
+if (user.match(userPat)==null) {
+
+    // user is not valid
+
+    alert("The username doesn't seem to be valid.")
+
+    return false
+
+}
+
+
+
+var IPArray=domain.match(ipDomainPat)
+
+if (IPArray!=null) {
+
+   
+
+
+
+      for (var i=1;i<=4;i++) {
+
+        if (IPArray[i]>255) {
+
+            alert("Destination IP address is invalid!")
+
+        return false
+
+        }
+
+    }
+
+    return true
+
+}
+
+
+
+
+
+var domainArray=domain.match(domainPat)
+
+if (domainArray==null) {
+
+    alert("The domain name doesn't seem to be valid.")
+
+    return false
+
+}
+
+
+
+
+
+
+
+var atomPat=new RegExp(atom,"g")
+
+var domArr=domain.match(atomPat)
+
+var len=domArr.length
+
+if (domArr[domArr.length-1].length<2 ||
+
+    domArr[domArr.length-1].length>3) {
+
+   // the address must end in a two letter or three letter word.
+
+   alert("The address must end in a three-letter domain, or two letter country.")
+
+   return false
+
+}
+
+
+
+
+
+if (len<2) {
+
+   var errStr="This address is missing a hostname!"
+
+   alert(errStr)
+
+   return false
+
+}
+
+
+
+
+
+return true;
+
+}
+
+
+
+
+
+
+
+function checknumberornot(strval,intnum)
+
+{
+
+var checkStr = strval;
+
+var countval=0
+
+for (i = 0;  i < checkStr.length;  i++)
+
+   {
+
+    ch = checkStr.charAt(i);
+
+     if (isNaN(ch)==false)
+
+       {
+
+        countval++;
+
+        }
+
+       
+
+        else
+
+       
+
+        {
+
+        alert("Please Enter Mobile No. ONLY")
+
+           return false;
+
+          
+
+        }  
+
+    }
+
+   
+
+ 
+
+}
+
+
+
+function phonenumber(inputtxt)
+
+{
+
+  var phoneno = /^\d{10}$/;
+
+  if(inputtxt.value.match(phoneno))
+
+  {
+
+      return true;
+
+  }
+
+  else
+
+  {
+
+     alert("Not a valid Phone Number");
+
+     return false;
+
+	 
+
+  }
+
+  }
+
+
+
+
+
+function Validate1(tt){
+
+
+ 
+
+    if (tt.name.value=="")
+
+       {
+
+       alert("Enter the Name")
+
+       tt.name.focus();
+
+       return false;
+
+       }
+	      
+
+        
+
+   
+
+    if(tt.email.value=="")
+
+       {
+
+       alert("Enter Your Email Address")
+
+       tt.email.focus();
+
+       return false;
+
+       }
+
+      
+
+       if (emailCheck(tt.email.value)==false){
+
+       alert("Please Enter email")
+
+        tt.email.value=""
+
+        tt.email.focus();
+
+        return false;
+
+       }
+
+      
+
+      
+
+        if(tt.mobile.value=="")
+
+       {
+
+       alert("Enter the Mobile")
+
+       tt.mobile.focus();
+
+       return false;
+
+       }
+	   
+   if (phonenumber(document.form1.mobile)==false){
+        document.form1.mobile.focus();
+        return false;
+       }
+
+ 
+
+	   
+ if (tt.tdate.value=="")
+
+       {
+
+       alert("Select the Travel Date")
+
+
+
+       tt.tdate.focus();
+
+       return false;
+
+       }
+
+ }
+
+</script> 
+
+<!------------------------------------------------------------------------Form-end---------------------------------------------------------------------------------->
+<body>
+    
+          <!-- Header area start -->
+   <header>
+        <div id="header-sticky" class="header-area header-style header-style-one has-border">
+            <div class="container">
+                <div class="mega-menu-wrapper p-relative">
+                    <div class="header-main">
+                        <div class="header-left">
+                             <div class="header-logo">
+                                <a href="index.html" class="logo-primary">
+                                    <img src="assets/images/logo/logowhite.png" alt="logo">
+                                </a>
+                                <a href="index.html" class="logo-secondary">
+                                    <img src="assets/images/logo/logo-black-sub.png" alt="logo"  >
+                                </a>
+                            </div>
+                            <div class="header-menu">
+                                <nav class="main-menu" id="mobile-menu">
+                                    <ul>
+                                        <li class="has-mega-menu">
+                                            <a href="index.html">HOME</a>                                        </li>
+										
+										  <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">WHY US</a>
+                                   <ul class="submenu">
+									 <li><a href="about-us.html">ADVENTURE ROUTES TRAVELS </a></li>
+									  <li><a href="services.html">SERVICES</a></li>
+									   <li><a href="travel-policy.html">POLICY</a></li>
+                                   </ul>
+                                </li>
+							  <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">HOLIDAYS</a>
+                                   <ul class="submenu">
+									 <li><a href="domestic.html">DOMESTIC TOUR </a></li>
+                                   </ul>
+                                </li>
+								  <li class="has-mega-menu">
+                                    <a href="taxi.html">TAXI</a>									</li>
+									
+								  <li class="has-mega-menu">
+                                    <a href="book-now.html">BOOK</a>									 </li>
+                              
+                                <li class="has-mega-menu"><a href="pay-now.html">PAY</a></li>
+								  <li class="has-mega-menu"><a href="contact.html">CONTACT</a></li>	
+                            </ul>
+                        </nav>
+                            </div>
+                        </div>
+                         <div class="header-right d-flex align-items-center gap-24">
+                        <div class="header-btn d-none d-sm-block">
+                            <a href="travel-policy.html" class="bd-primary-btn btn-style has-arrow is-bg radius-60">
+                                <span class="bd-primary-btn-arrow arrow-right"><i class="fa-regular fa-arrow-right"></i></span>
+                                <span class="bd-primary-btn-text">Policy</span>
+                                <span class="bd-primary-btn-circle"></span>
+                                <span class="bd-primary-btn-arrow arrow-left"><i class="fa-regular fa-arrow-right"></i></span>
+                            </a>
+
+                        </div>
+                       <div class="header-hamburger ml-20 d-xl-none">
+                                    <div class="sidebar-toggle">
+                                        <a class="bar-icon" href="javascript:void(0)">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                </div>
+								
+
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Header area end -->
+
+    <!-- Offcanvas area start -->   <!-- Offcanvas area start -->
+  <div class="fix">
+        <div class="offcanvas-area">
+            <div class="offcanvas-wrapper">
+                <div class="offcanvas-content">
+                    <div class="offcanvas-top d-flex justify-content-between align-items-center mb-25">
+                        <div class="offcanvas-logo">
+                            <a href="index.html">
+                                <img src="assets/images/logo/logo-black.png" alt="logo">
+                            </a>
+                        </div>
+                        <div class="offcanvas-close">
+                            <button class="offcanvas-close-icon animation--flip">
+                                <span class="offcanvas-m-lines">
+                                <span class="offcanvas-m-line line--1"></span><span
+                                    class="offcanvas-m-line line--2"></span><span
+                                    class="offcanvas-m-line line--3"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                   
+                    <div class="mobile-menu fix mb-25"></div>
+                   
+                    <div class="offcanvas-contact mb-25">
+                        <h4 class="offcanvas-title-meta">Contact Info</h4>
+                        <ul>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a target="_blank" href="">
+                                        <i class="fal fa-map-marker-alt"></i></a>
+                                </div>
+                                 <div class="offcanvas-contact-text">
+                                      <a target="_blank" href="">Adventure Routes Travels <br>
+Vill. Baindla, Post Office Kalihatti,<br>
+Tehsil & District Shimla<br>
+Himachal Pradesh 171103 </a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a href="tel:+91 9625207876"><i class="far fa-phone"></i></a>
+                                </div>
+                                <div class="offcanvas-contact-text">
+                                    <a href="tel:+91 9625207876">+91 9625207876 <br> +91 8894102786</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a href=""><i class="fal fa-envelope"></i></a>
+                                </div>
+                                <div class="offcanvas-contact-text">
+                                    <a href=""><span class="__cf_email__" data-cfemail="">info@adventureroutestravels.com</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                  
+                    <div class="offcanvas-social">
+                        <h4 class="offcanvas-title-meta">Subscribe & Follow</h4>
+                        <ul>
+                            <li><a href="https://www.facebook.com/people/Adventure-Routes-Travels/61561682203315/?mibextid=kFxxJD" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <a href="https://www.instagram.com/adventure_routes_travels/?igsh=Z2tzMWNkaWJjYjc2&utm_source=qr" target="_blank"><i class="icon-instagram"></i></a>
+                            <li><a href="https://www.youtube.com/channel/UCZBHlpUsNuvlABRLaS_jirA?reload=9" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                      
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-overlay"></div>
+    <div class="offcanvas-overlay-white"></div>
+    <!-- Offcanvas area start -->
+
+    <!-- search popup area start here  -->
+    <!-- search popup overlay  -->
+    <div class="bd-search-overlay"></div>
+    <!-- search popup area end here  -->
+
+
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- breadcrumb area start -->
+  <section class="bd-breadcrumb-area p-relative fix">
+            <!-- breadcrumb background image -->
+          <div class="bd-breadcrumb-bg" data-background="assets/images/bg/breadcrumb-bg.png"></div>
+            <div class="bd-breadcrumb-wrapper p-relative">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10">
+                            <div class="bd-breadcrumb d-flex align-items-center justify-content-center">
+                                <div class="bd-breadcrumb-content text-center">
+                                    
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- breadcrumb area end -->
+<br><br>
+        <!-- tour-details area start --> <section class="bd-tour-details-area section-space">
+            <div class="container">
+                <div class="row gy-24">
+                    <div class="col-xxl-4 col-xl-4 col-lg-5 order-lg-0 order-1">
+                        <aside class="sidebar-wrapper sidebar-sticky sidebar-left">
+                            <div class="sidebar-widget-wrapper mb-30">
+                                <div class="sidebar-widget widget">
+                                
+                                
+                               
+                                <div class="sidebar-widget widget">
+                                    <h6 class="sidebar-widget-title small mb-15">Get Customize Tour</h6>
+                                  <div class="sidebar-booking">
+                                        <form class="sidebar-booking-form"  action="book-main-tour-itin.php" onSubmit="return Validate1(this)" method="post" name="form1" > 
+<input type="hidden"  name="desti" value="Lahaul Spiti">
+<input type="hidden"  name="tourname" value="Unexplored Spiti Tour Package  " >
+<input type="hidden"  name="ndays" value="09  Nights / 10  Days " >
+                                            <div class="input-box">
+                                               <input type="text" class="form_control" placeholder="Name" name="name">
+                                            </div>
+                                            <div class="input-box">
+                                                <input type="text" class="form_control" placeholder="E-mail" name="email">
+                                            </div>
+                                            <div class="input-box">
+                                             <input type="text" class="form_control" placeholder="Mobile" name="mobile">
+                                            </div>
+                                            <div class="input-box">
+						 <strong>Travel Date</strong>
+                                             <input type="date" class="form_control"  name="tdate">
+                                            </div>			 
+								 
+                                            <div class="booking-btn">
+					    <button class="bd-btn btn-style radius-4 w-55">&nbsp;&nbsp;Send Now&nbsp;&nbsp;<span></span></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                               
+                               
+                            </div><br><br>
+                            <div class="sidebar-widget-banner p-relative">
+                                <div class="sidebar-widget-thumb p-relative">
+                                    <img src="assets/images/bg/sidebar-img.png" alt="img">
+                                </div>
+                                <div class="sidebar-widget-content">
+                                    <span class="bd-play-btn pulse-white mb-40"><i
+                                            class="icon-call-ring"></i></span>
+                                    <p class="b3 mb-0">Free Call</p>
+                                    <h5 class="mb-25"><a href="tel:+91 9625207876">+91 9625207876</a></h5>
+                                    <div class="sidebar-btn">
+                                        <a class="bd-text-btn style-two" href="contact.html">Contact
+                                            <span class="icon__box">
+                                                <i class="fa-light fa-angle-right icon__first"></i>
+                                                <i class="fa-light fa-angle-right icon__second"></i>
+                                            </span>
+                                        </a>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-xxl-8 col-xl-8 col-lg-7 order-lg-1 order-0">
+                        <div class="tour-details-wrapper">
+                              <div class="tour-details mb-25"><br>
+						
+                                 <div class="tour-details-thumb details-slide-full mb-30">
+                                    <img src="assets/images/tour/spiti/s6.jpg" alt="image">
+                                </div>
+                                <div class="tour-details-content">
+                                    
+                                    <h3 class="tour-details-title mb-15">Unexplored Spiti Tour Package    </h3>
+                                    <div class="tour-details-meta d-flex flex-wrap gap-10 align-items-center justify-content-between mb-20">
+                                        <div class="tour-details-price">
+                                             <font   face="Arial, Helvetica, sans-serif" size="-1" color="#FF9501"><b>&#8377;</b></font> <span><font size="-1" Class="tour-listing__card-people-text text-small"><b>. ON REQUEST</b></font></span> 
+                                        </div>
+                                        <div class="tour-details-meta-right d-flex flex-wrap gap-10 align-items-center justify-content-between">
+                                           
+                                            <div class="theme-social">
+                                                <a href="https://www.facebook.com/people/Adventure-Routes-Travels/61561682203315/?mibextid=kFxxJD"><i class="icon-facebook"></i></a>
+                                                <a href="https://www.instagram.com/adventure_routes_travels/?igsh=Z2tzMWNkaWJjYjc2&utm_source=qr"><i class="icon-instagram"></i></a>
+                                           
+                                                <a href="https://www.youtube.com/channel/UCZBHlpUsNuvlABRLaS_jirA?reload=9"><i class="icon-youtube"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tour-details-destination-wrapper">
+                                        <div class="tour-details-destination-info">
+                                            <div class="search-icon-bg is-big">
+                                                <span><i class="fa-light fa-clock"></i></span>
+                                            </div>
+                                            <div class="tour-details-destination-info-title">
+                                                <p class="tour-details-destination-info-top mb-0">Duration</p>
+                                                <span class="tour-details-destination-info-bottom small"> 09 Night 10 Days
+                                                    
+                                                </span>
+                                            </div>
+                                        </div>
+                                       <div class="tour-details-destination-info">
+    <div class="search-icon-bg is-big">
+     <span><i class="fa-sharp fa-light fa-moped"></i></span>
+        </div>
+         <div class="tour-details-destination-info-title">
+         <p class="tour-details-destination-info-top mb-0">Tour Code</p>
+             &nbsp;  <span class="tour-details-destination-info-bottom small"> KST6</span>
+             </div></div>
+
+                                      
+                                        <div class="tour-details-destination-info">
+                                            <div class="search-icon-bg is-big">
+                                                <span><i class="fa-light fa-location-dot"></i></span>
+                                            </div>
+                                            <div class="tour-details-destination-info-title">
+                                                <p class="tour-details-destination-info-top mb-0">Location</p>
+                                                <span class="tour-details-destination-info-bottom">Spiti</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                    <div class="tour-details-faq mb-35">
+                                        <h4 class="mb-20">Tour Plan</h4>
+                                        <div class="accordion-wrapper faq-style-3">
+                                            <div class="accordion" id="accordionExampleThree">
+                                                <div class="accordion-item">
+                                                    <h6 class="accordion-header" id="headingNine">
+                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                           <span>Day 01:</span>   Drive From Chandigarh To Shimla</button> </h6>
+                         <div id="collapseNine" class="accordion-collapse collapse show" aria-labelledby="headingNine" data-bs-parent="#accordionExampleThree">
+                             <div class="accordion-body"><p align="justify">
+
+
+
+On arrival at Chandigarh Railway Station / Airport, you will be met, assisted and get driven to the Queen of hills lies in the core of Himalayas.
+<br><br>
+Shimla derives its name from goddess Shyamala Devi, which is an incarnation of Kali. The town is almost the home to a number of tudor bethan and neo – gothic architectures dating from colonial era as well as multiple temples. For its rugged mountainous terrain, charming snowfall and pleasant weather, this place has been a blast to eminence among nature lovers and escapade enthusiast.
+<br><br>
+The drive will take 3.5hours and on reach you can explore the town your own. In the afternoon visit the Christ Church, the Gaiety Theatre, scandal point, plummet by the colorful Lakkar Bazaar, and the Bandstand. Heritage lovers can also glimpse some British architecture, which divulges some history of the glorious past.
+<br><br>
+In the evening you will be given choice to visit the Jakhu temple where on the way you can hear the chirping of the birds, meet monkeys and get vanquished by the chilly winds of the mountains. Jakhoo hill is Shimla's highest peak, which offers a panoramic view of the Shivalik Ranges and the town of Sanjauli. It is 2.5 km from the Ridge, Shimla at a height of 2,455 m (8,000 feet) above sea level.
+<br><br>
+At the top of the Hill, is an old temple of Lord Hanuman, which is also the home of innumerable lighthearted monkeys waiting to be fed by all visitors. At 108 feet (33 meter) statue of Lord Hanuman, a Hindu deity, at 8,500 feet (2,591 meters) above sea level, is a single statue to stand at the uppermost elevation among several other masters -pieces in the world.
+
+
+ </p>
+
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                       
+											   
+										<div class="accordion-item">
+                                         <h6 class="accordion-header" id="headingEleven">
+                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                             <span>Day 02:</span>  Drive From Shimla To Sarahan To Sangla To Chitkul </button>  </h6>
+                  <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#accordionExampleThree">
+                                             <div class="accordion-body"><p align="justify">
+
+
+After breakfast, check-out form the hotel and get driven to Sangla, En-route visit the extremely renowned Bhima Kali temples, Sarahan, which is erected in the old-style Kinnauri way mainly from the coatings of stone and timber to engross the force of earthquakes.
+<br><br>
+There are two towers here, one newly reconstructed after the 12th-century original collapsed, and one from the 1920s (on the left) containing a highly admired shrine to Bhimakali (the local version of Kali) underneath a lovely silver-filigree awning on its top floor.
+<br><br>
+The curved, peaked roofs suggest the Tibetan influence on Kinnauri architecture, which becomes more marked as you move up the valley. To the right of the two towers is the squat Lankra Vir Temple, where human sacrifices were carried out right up to the 18th century.
+<br><br>
+After visit, continue your jaunt to Sangla valley lies in the district of half horse half men. En-route visit the Batseri Village where an old-fashioned bridge erected over the Baspa River leads you to Batseri and its cobble-stoned thoroughfares and the local temple of Badri Narayan. After this, visit the Kamru Fort – This five-storied tower type fort rests on 55 square feet of stone stage and was constructed by Dev Puran.
+<br><br>
+The elegantly complex statues of the wooden porches and minuscule temple are a view will behold you in the amiable area. After lunch, geared up to ride Chitkul, which is the last Indian hamlet at the border and has a population of roughly 700 people. Here you can cite the Nila range where the greenish-blue Baspa River originates, adorns India on one side and Tibet on the other.
+<br><br>
+Situated at the elevation of 3450m, Chitkul is perfect place for nature lovers and photographers. With few strolls visit the shrine of local Goddess, ‘Mathi’, 500 years old-style architecture built by the unknown person.
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+                                               				   
+															   
+															   
+															   
+									 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingFourteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+									   <span>Day 03:</span>   Drive From Sangla To Kalpa To Nako </button>  </h6>
+                  <div id="collapseFourteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+
+After breakfast, check-out form the hotel and get driven to Reckong Peo – the district capital of Kinnaur. It is a place where we get permit to enter Spiti valley and once all formalities done, we can head up higher on a 7 kilometer zigzagging road, to the old-fashioned village of Kalpa – a jewel with intriguingly splendid vistas of the Kinner Kailash and Jorkandan Peaks impending right above the village.
+<br><br>
+Here you can visit the outstanding Kinnauri-style shrines or the colorful Samdrup Choeling Gompa. Adjacent of the Kinner Kailash is the 79-foot high solitary pillar, which looks like the Shivalinga, and is known for its color-changing possessions as the day attires on.
+<br><br>
+From Kalpa, geared up for the Hindustan – Tibet Highway to reach Nako, En-route sight how the color of the scenery changes from an emerald lush green to a deserted brown as we will be driving on the worlds most treacherous and beautiful roads. Cross the village Pooh, which is last fuel station and precede to the last hamlet of Kinnaur - Nako.
+
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+																    
+																				   
+									 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingFifteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+									   <span>Day 04:</span> Drive From Nako Tabo Dhankar </button>  </h6>
+                  <div id="collapseFifteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+
+
+After breakfast, check-out form the hotel and get driven to Dhankar, En-route visit Gue village.
+<br><br>
+Gue is famed for a monastery that dynasties a 500 year naturally shriveled monk. Legend say the lama named Sangha Tenzin shriveled him to free his village from the wave of scorpions. After visiting, continue your journey towards the ‘Ajanta of the Himalayas’. Tabo enclosing the 1010 year-old Tabo Monastery – which is a UNESCO world heritage site and is famous for its ancient paintings that portray the life of The Buddha, and complex portrayals of gods and whizzes along with life-size effigies of bodhisattvas, in a synthesis of western Tibetan, Indian and Kashmiri styles.
+<br><br>
+Continue your journey to a gorgeous hill town Dhankar. The former capital of the Royalties of Spiti Valley, also known as the Nono, who governed the dust-colored wildernesses of Spiti Valley, go back in time as you discover the 1200-year-old Dhankar Gompa which roosts unsteadily between assaulted rocky peaks on the edge of a crags. If time badges and you are not weary then take an hour’s climb above the village to visit the stunning turquoise Dhankar Tso or Dhankar Lake, which offers views over the valley and the twin peaks of Mane Rang (6593 meters).
+
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+																    
+																								   
+									 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingSixteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
+									   <span>Day 05:</span> Drive From Dhankar Lalung Demul Kaza </button>  </h6>
+                  <div id="collapseSixteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+After breakfast, check-out form the hotel and take a short drive to Lalung famous for its effigy of the three-surrounded Buddha, which represents the Buddha looking in all directions at one time. Literally deciphering to the “Land of God”, Lalung is located at the foot of the Tangmar Mountains.
+<br><br>
+The locals believe their God lives in these mountains and the mountain changes it’s colors through wide arrays of reds, yellows, and browns depending on the mood of their God. Visit one of the oldest gompas in the Spiti Valley, which the natives say, was built by angels one night. Then continue your journey towards Demul, stunning high elevation of Spiti Valley. Located at the 4400 meters, Demul is a village, which redefines aloofness.
+<br><br>
+Barren from any cell-phone or Internet reception, this silent and charming village is a home to less than 50 families. Here you are free to discover the missive like decor of the hamlet on your own, or you can opt for a dumpy yak safari. On the fifth day of this Spiti Valley tour, drive to the charming and high villages of Lalung and Demul.
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+											 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingSeventeen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen">
+									   <span>Day 06:</span>  Drive From Kaza Komik Langza Kaza</button>  </h6>
+                  <div id="collapseSeventeen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+
+
+After breakfast, take pleasure in high-altitude weather in the town of Kaza, which is an administrative center of the Spiti Valley. After being familiar to the vicinity, ride your first drive from the Kaza to the highest village of Asia Komik, literally means ‘eye of a snow cock’, and is located at a height of 4513m. This agronomy hamlet has a population of 84 people, living in complete isolation, cut-off from the rest of the world for most parts of the year.
+<br><br>
+Here you can visit the Komik Lundup Chhemo, which is one of the highest monasteries in the world, set in an attractive backdrop. Continue to another high hamlet of Spiti called as Langza. It a hamlet located at an elevation of 4400 meters and fits to the Sakyapa sect of Tibetan Buddhism.< Langza is a village having the population of 137 in 33 households.
+<br><br>
+Here you can stroll to the ancient Lang (Temple), which is estimated to be around 1000 years old. At Langza, hike back to the primeval era when Spiti was submerged by the Tethys Sea, as you explore a land very rich with fossils of Marine animals and plants which were here millions of years ago.
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>														
+											 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingEighteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEighteen" aria-expanded="false" aria-controls="collapseEighteen">
+									   <span>Day 07:</span>  Drive From Kaza Ki Monastery Tashigang Gette Chicham Kibber</button>  </h6>
+                  <div id="collapseEighteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+
+
+After breakfast, check-out form then hotel and get driven from Kaza to the small village of Kibber. Kibber a narrow valley on the summit of a limestone rock is situated at4205m which is famous for its motorable connectivity and own polling station during elections. From here drive to the ki Gompas where one can observe the houses of large number of Buddhist monks and nuns and a cafeteria.
+<br><br>
+Later, begin the first phase to the Langza hamlet where the relic creatures of human being of the Tethys Sea, were found.
+
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+														 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingNineteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNineteen" aria-expanded="false" aria-controls="collapseNineteen">
+									   <span>Day 08:</span>  Drive From Kibber Losar Kuzum La Chandratal Lake</button>  </h6>
+                  <div id="collapseNineteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+
+
+After breakfast, check-out form the hotel and get driven to the incredible Chandratal Lake, and a temple at Kunzum La. The azure glitter lake here will leave you enthralled and was said to be the echo of the stunning snow-capped peaks. Stay at the campground near towards the Lake.
+<br><br>
+From there, we head to Chandratal Lake – A visual marvel, this stunning blue colored Lake is set at an altitude of 4300 meters above sea level in the heart of high Himalayas and is a must see on a full moon night. It derives its name, “Chandra” (Moon) and “Taal” (Lake) from the crescent shape of the lake. Watch the lake change colors from crystal clear shades of blur to emerald greens by dusk.
+
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+														 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingTwenty">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwenty" aria-expanded="false" aria-controls="collapseTwenty">
+									   <span>Day 09:</span>Drive From Chandratal Lake Batal Chattru Rohtang La Manali</button>  </h6>
+                  <div id="collapseTwenty" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+After breakfast, check-out form the hotel and get driven from Chandratal Lake into Lahaul Valley, En-route halt at Batal for a cup of tea at a small teashop run by a beautiful old couple. From here, continue driving on the Kaza – Manali highway and rest at Chatru for lunch. Drive through the famous Rohtang Pass and return to Manali ending your magnificent Spiti Valley vacation.
+
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+													 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingEleven">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+									   <span>Day 10:</span>Drive From Manali Chandigarh</button>  </h6>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+After breakfast, check-out form the hotel and get driven to Manali, on arrival at Chandigarh get dropped at Chandigarh Railway Station / Airport for onward journey.
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+												
+                                            </div>
+                                        </div>
+                                    </div>
+									
+									
+									
+									
+                                       <div class="tour-details-list-wrap mb-35">
+                                        <h4 class="mb-20">Include/ Exclude</h4>
+                                        <div class="tour-details-list-box">
+                                            <div class="tour-details-list-include">
+                                                 <ul>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        Accommodations
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        Meals
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        Transportation
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        Welcome Drink
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                       All taxes (toll taxes, fuels expense
+&<br> driver expense)
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tour-details-list-exclude">
+                                                <ul>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                          Flights Ticket & Airport Transfers
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                           Travel & Medical Insurance
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                           5% Govt. Service Tax
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                       Personal Expenses
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                        Other Than Inclusion
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+									</div>
+									</div>
+									</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- tour-details area end -->
+
+    <!-- Body main wrapper end -->
+ 	   <footer class="bd-footer-area footer-bg image-bg fix">
+        <div class="section-space">
+            <div class="container"><br><br>
+                <div class="row justify-content-between">
+                    <div class="footer-grid">
+                        <div class="footer-1-col-1">
+                            <div class="footer-widget">
+                                
+                                 <div class="footer-widget-content"> <div class="footer-1-col-2">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">ADDRESS</h5>
+                            <div class="footer-widget-links">
+                               
+                                </div>
+                            </div>
+                        </div>
+                                <p><strong>Adventure Routes Travels </strong><br>Vill. Baindla, Post Office  Kalihatti,<br> Tehsil & District Shimla<br>
+                                Himachal Pradesh 171103</p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="footer-1-col-2">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">COMPANY</h5>
+                            <div class="footer-widget-links">
+                                 <ul>
+                                    <li class="underline"><a href="about-us.html">ABOUT US</a></li>
+									<li class="underline"><a href="services.html">SERVICES</a></li>
+									
+									 <li class="underline"><a href="taxi.html">TAXI</a> </li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-1-col-3">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">TOURS</h5>
+                            <div class="footer-widget-links">
+                                <ul>
+                                    <li class="underline"><a href="domestic.html">DOMESTIC TOUR </a></li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="footer-1-col-3">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">QUICK LINKS</h5>
+                            <div class="footer-widget-links">
+                                <ul>
+                                   <li class="underline"><a href="travel-policy.html">TRAVEL POLICY</a></li>
+									<li class="underline"><a href="pay-now.html">PAY NOW</a></li>
+                                   <li class="underline"><a href="book-now.html">BOOK NOW</a></li> 
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-1-col-5">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title  mb-15">CONTACT </h5>
+                                <div class="footer-btn pt-5">
+                                  
+                                   
+                                    <div class="apple-gallery-btn">
+                                      <div class="footer-call-wrap d-flex align-items-center gap-15">
+                                <div class="footer-call-icon">
+                                    <i class="icon-support"></i>
+                                </div>
+                                <div class="footer-call-content position-relative z-index-5">
+                                    <h6 class="footer-call-title">Speak our expert </h6>
+                                    <a class="footer-call-number b3" href="tel:+91 9625207876">+91 9625207876 <br> +91 8894102786 </a>
+                                </div>
+                            </div><BR>
+							<div class="d-flex flex-wrap align-items-center gap--5">
+                                    <span class="b6">Follow Us:</span>
+                                       <div class="theme-social">
+          <a href="https://www.facebook.com/people/Adventure-Routes-Travels/61561682203315/?mibextid=kFxxJD" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+				  <a href="https://www.instagram.com/adventure_routes_travels/?igsh=Z2tzMWNkaWJjYjc2&utm_source=qr" target="_blank"><i class="icon-instagram"></i></a>
+				  <a href="https://www.youtube.com/channel/UCZBHlpUsNuvlABRLaS_jirA?reload=9" target="_blank"><i class="icon-youtube"></i></a>
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="footer-copyright-area">
+            <div class="container">
+                <div class="row gy-24 align-items-center justify-content-between align-content-end">
+                    <div class="col-xl-8 col-lg-10 col-md-10 col-12">
+                        <div class="footer-copyright underline">
+                            <p>Copyright @<a href="adventureroutestravels.com" target="_blank">Adventure Routes Travels</a> |  Designed By <a href="https://honsol.com/">Honsol</a>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer area end -->
+    <!-- back to top -->
+    <!-- Backtotop start -->
+    <div class="backtotop-wrap cursor-pointer">
+        <svg class="backtotop-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Backtotop end -->
+
+    <!-- JS here -->
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/plugins/waypoints.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/plugins/meanmenu.min.js"></script>
+    <script src="assets/js/plugins/swiper.min.js"></script>
+    <script src="assets/js/plugins/wow.js"></script>
+    <script src="assets/js/plugins/dropzone.min.js"></script>
+    <script src="assets/js/vendor/magnific-popup.min.js"></script>
+    <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/vendor/purecounter.js"></script>
+    <script src="assets/js/plugins/nouislider.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/cleave.min.js"></script>
+    <script src="assets/js/plugins/flatpickr.js"></script>
+    <script src="assets/js/plugins/tinymce.min.js"></script>
+    <script src="assets/js/vendor/ajax-form.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+<!-------------------------------------------------whatsapp--------------------------------------------------------->
+	<style>
+.translator4 {
+	position: fixed;
+	left: 0;
+	bottom: 5%;
+	background-color: tranparent;
+	z-index: 999; 
+	border-radius: 6px;
+	min-height: 130px;
+}
+</style>
+
+<div class="translator4">
+<div class="call-enquiry">
+	<br>
+<p align="left"><a href="https://api.whatsapp.com/send?phone=+919625207876&amp;text=Hello%20Adventure Routes Travels,%20I%20Got%20A%20Query.%20My%20requirements%20are%20as%20follows:-"><img src="whatsapp.png" alt=" Adventure Routes Travels" title=" Adventure Routes Travels"></a></p>
+</div>
+</div> 
+<!-------------------------------------------------whatsapp--------------------------------------------------------->
+</html>

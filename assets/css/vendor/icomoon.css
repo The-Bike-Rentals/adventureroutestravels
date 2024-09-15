@@ -1,0 +1,201 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../../fonts/icomoon245e.eot?9xh5ne');
+  src:  url('../../fonts/icomoon245e.eot?9xh5ne#iefix') format('embedded-opentype'),
+    url('../../fonts/icomoon245e.ttf?9xh5ne') format('truetype'),
+    url('../../fonts/icomoon245e.woff?9xh5ne') format('woff'),
+    url('../../fonts/icomoon245e.svg?9xh5ne#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change ../../fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-transport:before {
+  content: "\e900";
+}
+.icon-flights:before {
+  content: "\e901";
+}
+.icon-hotel:before {
+  content: "\e902";
+}
+.icon-tour-package:before {
+  content: "\e903";
+}
+.icon-documentation:before {
+  content: "\e904";
+}
+.icon-balloons:before {
+  content: "\e905";
+}
+.icon-circle-user:before {
+  content: "\e906";
+}
+.icon-location-crosshairs:before {
+  content: "\e907";
+}
+.icon-cancle:before {
+  content: "\e908";
+}
+.icon-hourglass:before {
+  content: "\e909";
+}
+.icon-comment:before {
+  content: "\e90a";
+}
+.icon-profile:before {
+  content: "\e90c";
+}
+.icon-globe:before {
+  content: "\e916";
+}
+.icon-life-jacket:before {
+  content: "\e917";
+}
+.icon-fishing:before {
+  content: "\e918";
+}
+.icon-home:before {
+  content: "\e919";
+}
+.icon-envelope-b:before {
+  content: "\e91a";
+}
+.icon-share:before {
+  content: "\e91b";
+}
+.icon-bar:before {
+  content: "\e91c";
+}
+.icon-pin:before {
+  content: "\e91d";
+}
+.icon-doc:before {
+  content: "\e91e";
+}
+.icon-flag:before {
+  content: "\e91f";
+}
+.icon-call-ring:before {
+  content: "\e920";
+}
+.icon-call:before {
+  content: "\e921";
+}
+.icon-mountain:before {
+  content: "\e922";
+}
+.icon-world-map:before {
+  content: "\e923";
+}
+.icon-cycling:before {
+  content: "\e924";
+}
+.icon-travel-plane:before {
+  content: "\e925";
+}
+.icon-trent:before {
+  content: "\e926";
+}
+.icon-trip:before {
+  content: "\e927";
+}
+.icon-world:before {
+  content: "\e928";
+}
+.icon-envelope:before {
+  content: "\e929";
+}
+.icon-location-fill:before {
+  content: "\e92a";
+}
+.icon-instagram:before {
+  content: "\e92b";
+}
+.icon-android:before {
+  content: "\e92c";
+}
+.icon-apple:before {
+  content: "\e92d";
+}
+.icon-dimond:before {
+  content: "\e92e";
+}
+.icon-youtube:before {
+  content: "\e930";
+}
+.icon-linkedin:before {
+  content: "\e931";
+}
+.icon-facebook:before {
+  content: "\e932";
+}
+.icon-twitter-x:before {
+  content: "\e933";
+}
+.icon-cleander-check:before {
+  content: "\e934";
+}
+.icon-person:before {
+  content: "\e935";
+}
+.icon-play:before {
+  content: "\e936";
+}
+.icon-adventure:before {
+  content: "\e937";
+}
+.icon-gas-balloon:before {
+  content: "\e938";
+}
+.icon-skydive:before {
+  content: "\e939";
+}
+.icon-elephant:before {
+  content: "\e93a";
+}
+.icon-campaigns:before {
+  content: "\e93c";
+}
+.icon-support:before {
+  content: "\e93e";
+}
+.icon-heart:before {
+  content: "\e93f";
+}
+.icon-percent:before {
+  content: "\e940";
+}
+.icon-plane-up:before {
+  content: "\e942";
+}
+.icon-flag-wave:before {
+  content: "\e943";
+}
+.icon-eiffel-tower:before {
+  content: "\e944";
+}
+.icon-star:before {
+  content: "\e945";
+}
+.icon-cleander:before {
+  content: "\e947";
+}
+.icon-airplane:before {
+  content: "\e948";
+}

@@ -1,0 +1,1058 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>   Adventure Routes Travels | Serene Lake To Himalayan Views  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/chosen.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="assets/css/plugins/dropzone.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nouislider.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome-pro.css">
+    <link rel="stylesheet" href="assets/css/vendor/icomoon.css">
+    <link rel="stylesheet" href="assets/css/vendor/spacing.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+
+
+<!-------------------------------holiday----------------------------------->
+
+<script language="JavaScript" type="text/JavaScript">
+
+ function validfield(strval)
+
+{
+
+var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+
+var checkStr = strval;
+
+var allValid = true;
+
+for (i = 0;  i < checkStr.length;  i++)
+
+{
+
+ch = checkStr.charAt(i);
+
+for (j = 0;  j < checkOK.length;  j++)
+
+if (ch == checkOK.charAt(j))
+
+break;
+
+if (j == checkOK.length)
+
+{
+
+allValid = false;
+
+break;
+
+}
+
+}
+
+    if (!allValid)
+
+    {
+
+      return false;
+
+    }
+
+    else
+
+    {
+
+      return true;
+
+    }
+
+}
+
+function emailCheck (emailStr) {
+
+
+
+var emailPat=/^(.+)@(.+)$/
+
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"
+
+var validChars="\[^\\s" + specialChars + "\]"
+
+var quotedUser="(\"[^\"]*\")"
+
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/
+
+var atom=validChars + '+'
+
+var word="(" + atom + "|" + quotedUser + ")"
+
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$")
+
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$")
+
+var matchArray=emailStr.match(emailPat)
+
+if (matchArray==null) {
+
+      alert("Email address seems incorrect (check @ and .'s)")
+
+    return false
+
+}
+
+var user=matchArray[1]
+
+var domain=matchArray[2]
+
+
+
+if (user.match(userPat)==null) {
+
+    // user is not valid
+
+    alert("The username doesn't seem to be valid.")
+
+    return false
+
+}
+
+
+
+var IPArray=domain.match(ipDomainPat)
+
+if (IPArray!=null) {
+
+   
+
+
+
+      for (var i=1;i<=4;i++) {
+
+        if (IPArray[i]>255) {
+
+            alert("Destination IP address is invalid!")
+
+        return false
+
+        }
+
+    }
+
+    return true
+
+}
+
+
+
+
+
+var domainArray=domain.match(domainPat)
+
+if (domainArray==null) {
+
+    alert("The domain name doesn't seem to be valid.")
+
+    return false
+
+}
+
+
+
+
+
+
+
+var atomPat=new RegExp(atom,"g")
+
+var domArr=domain.match(atomPat)
+
+var len=domArr.length
+
+if (domArr[domArr.length-1].length<2 ||
+
+    domArr[domArr.length-1].length>3) {
+
+   // the address must end in a two letter or three letter word.
+
+   alert("The address must end in a three-letter domain, or two letter country.")
+
+   return false
+
+}
+
+
+
+
+
+if (len<2) {
+
+   var errStr="This address is missing a hostname!"
+
+   alert(errStr)
+
+   return false
+
+}
+
+
+
+
+
+return true;
+
+}
+
+
+
+
+
+
+
+function checknumberornot(strval,intnum)
+
+{
+
+var checkStr = strval;
+
+var countval=0
+
+for (i = 0;  i < checkStr.length;  i++)
+
+   {
+
+    ch = checkStr.charAt(i);
+
+     if (isNaN(ch)==false)
+
+       {
+
+        countval++;
+
+        }
+
+       
+
+        else
+
+       
+
+        {
+
+        alert("Please Enter Mobile No. ONLY")
+
+           return false;
+
+          
+
+        }  
+
+    }
+
+   
+
+ 
+
+}
+
+
+
+function phonenumber(inputtxt)
+
+{
+
+  var phoneno = /^\d{10}$/;
+
+  if(inputtxt.value.match(phoneno))
+
+  {
+
+      return true;
+
+  }
+
+  else
+
+  {
+
+     alert("Not a valid Phone Number");
+
+     return false;
+
+	 
+
+  }
+
+  }
+
+
+
+
+
+function Validate1(tt){
+
+
+ 
+
+    if (tt.name.value=="")
+
+       {
+
+       alert("Enter the Name")
+
+       tt.name.focus();
+
+       return false;
+
+       }
+	      
+
+        
+
+   
+
+    if(tt.email.value=="")
+
+       {
+
+       alert("Enter Your Email Address")
+
+       tt.email.focus();
+
+       return false;
+
+       }
+
+      
+
+       if (emailCheck(tt.email.value)==false){
+
+       alert("Please Enter email")
+
+        tt.email.value=""
+
+        tt.email.focus();
+
+        return false;
+
+       }
+
+      
+
+      
+
+        if(tt.mobile.value=="")
+
+       {
+
+       alert("Enter the Mobile")
+
+       tt.mobile.focus();
+
+       return false;
+
+       }
+	   
+   if (phonenumber(document.form1.mobile)==false){
+        document.form1.mobile.focus();
+        return false;
+       }
+
+ 
+
+	   
+ if (tt.tdate.value=="")
+
+       {
+
+       alert("Select the Travel Date")
+
+
+
+       tt.tdate.focus();
+
+       return false;
+
+       }
+
+ }
+
+</script> 
+
+<!------------------------------------------------------------------------Form-end---------------------------------------------------------------------------------->
+<body>
+    
+          <!-- Header area start -->
+   <header>
+        <div id="header-sticky" class="header-area header-style header-style-one has-border">
+            <div class="container">
+                <div class="mega-menu-wrapper p-relative">
+                    <div class="header-main">
+                        <div class="header-left">
+                             <div class="header-logo">
+                                <a href="index.html" class="logo-primary">
+                                    <img src="assets/images/logo/logowhite.png" alt="logo">
+                                </a>
+                                <a href="index.html" class="logo-secondary">
+                                    <img src="assets/images/logo/logo-black-sub.png" alt="logo"  >
+                                </a>
+                            </div>
+                            <div class="header-menu">
+                                <nav class="main-menu" id="mobile-menu">
+                                    <ul>
+                                        <li class="has-mega-menu">
+                                            <a href="index.html">HOME</a>                                        </li>
+										
+										  <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">WHY US</a>
+                                   <ul class="submenu">
+									 <li><a href="about-us.html">ADVENTURE ROUTES TRAVELS </a></li>
+									  <li><a href="services.html">SERVICES</a></li>
+									   <li><a href="travel-policy.html">POLICY</a></li>
+                                   </ul>
+                                </li>
+							  <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">HOLIDAYS</a>
+                                   <ul class="submenu">
+									 <li><a href="domestic.html">DOMESTIC TOUR </a></li>
+                                   </ul>
+                                </li>
+								  <li class="has-mega-menu">
+                                    <a href="taxi.html">TAXI</a>									</li>
+									
+								  <li class="has-mega-menu">
+                                    <a href="book-now.html">BOOK</a>									 </li>
+                              
+                                <li class="has-mega-menu"><a href="pay-now.html">PAY</a></li>
+								  <li class="has-mega-menu"><a href="contact.html">CONTACT</a></li>	
+                            </ul>
+                        </nav>
+                            </div>
+                        </div>
+                         <div class="header-right d-flex align-items-center gap-24">
+                        <div class="header-btn d-none d-sm-block">
+                            <a href="travel-policy.html" class="bd-primary-btn btn-style has-arrow is-bg radius-60">
+                                <span class="bd-primary-btn-arrow arrow-right"><i class="fa-regular fa-arrow-right"></i></span>
+                                <span class="bd-primary-btn-text">Policy</span>
+                                <span class="bd-primary-btn-circle"></span>
+                                <span class="bd-primary-btn-arrow arrow-left"><i class="fa-regular fa-arrow-right"></i></span>
+                            </a>
+
+                        </div>
+                       <div class="header-hamburger ml-20 d-xl-none">
+                                    <div class="sidebar-toggle">
+                                        <a class="bar-icon" href="javascript:void(0)">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                </div>
+								
+
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Header area end -->
+
+    <!-- Offcanvas area start -->   <!-- Offcanvas area start -->
+  <div class="fix">
+        <div class="offcanvas-area">
+            <div class="offcanvas-wrapper">
+                <div class="offcanvas-content">
+                    <div class="offcanvas-top d-flex justify-content-between align-items-center mb-25">
+                        <div class="offcanvas-logo">
+                            <a href="index.html">
+                                <img src="assets/images/logo/logo-black.png" alt="logo">
+                            </a>
+                        </div>
+                        <div class="offcanvas-close">
+                            <button class="offcanvas-close-icon animation--flip">
+                                <span class="offcanvas-m-lines">
+                                <span class="offcanvas-m-line line--1"></span><span
+                                    class="offcanvas-m-line line--2"></span><span
+                                    class="offcanvas-m-line line--3"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                   
+                    <div class="mobile-menu fix mb-25"></div>
+                   
+                    <div class="offcanvas-contact mb-25">
+                        <h4 class="offcanvas-title-meta">Contact Info</h4>
+                        <ul>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a target="_blank" href="">
+                                        <i class="fal fa-map-marker-alt"></i></a>
+                                </div>
+                                 <div class="offcanvas-contact-text">
+                                      <a target="_blank" href="">Adventure Routes Travels <br>
+Vill. Baindla, Post Office Kalihatti,<br>
+Tehsil & District Shimla<br>
+Himachal Pradesh 171103 </a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a href="tel:+91 9625207876"><i class="far fa-phone"></i></a>
+                                </div>
+                                <div class="offcanvas-contact-text">
+                                    <a href="tel:+91 9625207876">+91 9625207876 <br> +91 8894102786</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a href=""><i class="fal fa-envelope"></i></a>
+                                </div>
+                                <div class="offcanvas-contact-text">
+                                    <a href=""><span class="__cf_email__" data-cfemail="">info@adventureroutestravels.com</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                  
+                    <div class="offcanvas-social">
+                        <h4 class="offcanvas-title-meta">Subscribe & Follow</h4>
+                        <ul>
+                            <li><a href="https://www.facebook.com/people/Adventure-Routes-Travels/61561682203315/?mibextid=kFxxJD" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <a href="https://www.instagram.com/adventure_routes_travels/?igsh=Z2tzMWNkaWJjYjc2&utm_source=qr" target="_blank"><i class="icon-instagram"></i></a>
+                            <li><a href="https://www.youtube.com/channel/UCZBHlpUsNuvlABRLaS_jirA?reload=9" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                      
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-overlay"></div>
+    <div class="offcanvas-overlay-white"></div>
+    <!-- Offcanvas area start -->
+
+    <!-- search popup area start here  -->
+    <!-- search popup overlay  -->
+    <div class="bd-search-overlay"></div>
+    <!-- search popup area end here  -->
+
+
+    <!-- Body main wrapper start -->
+    <main>
+        <!-- breadcrumb area start -->
+  <section class="bd-breadcrumb-area p-relative fix">
+            <!-- breadcrumb background image -->
+          <div class="bd-breadcrumb-bg" data-background="assets/images/bg/breadcrumb-bg.png"></div>
+            <div class="bd-breadcrumb-wrapper p-relative">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10">
+                            <div class="bd-breadcrumb d-flex align-items-center justify-content-center">
+                                <div class="bd-breadcrumb-content text-center">
+                                    
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- breadcrumb area end -->
+<br><br>
+        <!-- tour-details area start --> <section class="bd-tour-details-area section-space">
+            <div class="container">
+                <div class="row gy-24">
+                    <div class="col-xxl-4 col-xl-4 col-lg-5 order-lg-0 order-1">
+                        <aside class="sidebar-wrapper sidebar-sticky sidebar-left">
+                            <div class="sidebar-widget-wrapper mb-30">
+                                <div class="sidebar-widget widget">
+                                
+                                
+                               
+                                <div class="sidebar-widget widget">
+                                    <h6 class="sidebar-widget-title small mb-15">Get Customize Tour</h6>
+                                  <div class="sidebar-booking">
+                                        <form class="sidebar-booking-form"  action="book-main-tour-itin.php" onSubmit="return Validate1(this)" method="post" name="form1" > 
+<input type="hidden"  name="desti" value="Uttarakhand">
+<input type="hidden"  name="tourname" value="Serene Lake To Himalayan Views" >
+<input type="hidden"  name="ndays" value="04  Nights / 05  Days " >
+                                            <div class="input-box">
+                                               <input type="text" class="form_control" placeholder="Name" name="name">
+                                            </div>
+                                            <div class="input-box">
+                                                <input type="text" class="form_control" placeholder="E-mail" name="email">
+                                            </div>
+                                            <div class="input-box">
+                                             <input type="text" class="form_control" placeholder="Mobile" name="mobile">
+                                            </div>
+                                            <div class="input-box">
+						 <strong>Travel Date</strong>
+                                             <input type="date" class="form_control"  name="tdate">
+                                            </div>			 
+								 
+                                            <div class="booking-btn">
+					    <button class="bd-btn btn-style radius-4 w-55">&nbsp;&nbsp;Send Now&nbsp;&nbsp;<span></span></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                               
+                               
+                            </div><br><br>
+                            <div class="sidebar-widget-banner p-relative">
+                                <div class="sidebar-widget-thumb p-relative">
+                                    <img src="assets/images/bg/sidebar-img.png" alt="img">
+                                </div>
+                                <div class="sidebar-widget-content">
+                                    <span class="bd-play-btn pulse-white mb-40"><i
+                                            class="icon-call-ring"></i></span>
+                                    <p class="b3 mb-0">Free Call</p>
+                                    <h5 class="mb-25"><a href="tel:+91 9625207876">+91 9625207876</a></h5>
+                                    <div class="sidebar-btn">
+                                        <a class="bd-text-btn style-two" href="contact.html">Contact
+                                            <span class="icon__box">
+                                                <i class="fa-light fa-angle-right icon__first"></i>
+                                                <i class="fa-light fa-angle-right icon__second"></i>
+                                            </span>
+                                        </a>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-xxl-8 col-xl-8 col-lg-7 order-lg-1 order-0">
+                        <div class="tour-details-wrapper">
+                              <div class="tour-details mb-25"><br>
+						
+                                 <div class="tour-details-thumb details-slide-full mb-30">
+                                    <img src="assets/images/tour/uttarakhand/s3.jpg" alt="image">
+                                </div>
+                                <div class="tour-details-content">
+                                    
+                                    <h3 class="tour-details-title mb-15">Serene Lake To Himalayan Views  </h3>
+                                    <div class="tour-details-meta d-flex flex-wrap gap-10 align-items-center justify-content-between mb-20">
+                                        <div class="tour-details-price">
+                                             <font   face="Arial, Helvetica, sans-serif" size="-1" color="#FF9501"><b>&#8377;</b></font> <span><font size="-1" Class="tour-listing__card-people-text text-small"><b>. ON REQUEST</b></font></span> 
+                                        </div>
+                                        <div class="tour-details-meta-right d-flex flex-wrap gap-10 align-items-center justify-content-between">
+                                           
+                                            <div class="theme-social">
+                                                <a href="https://www.facebook.com/people/Adventure-Routes-Travels/61561682203315/?mibextid=kFxxJD"><i class="icon-facebook"></i></a>
+                                                <a href="https://www.instagram.com/adventure_routes_travels/?igsh=Z2tzMWNkaWJjYjc2&utm_source=qr"><i class="icon-instagram"></i></a>
+                                           
+                                                <a href="https://www.youtube.com/channel/UCZBHlpUsNuvlABRLaS_jirA?reload=9"><i class="icon-youtube"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tour-details-destination-wrapper">
+                                        <div class="tour-details-destination-info">
+                                            <div class="search-icon-bg is-big">
+                                                <span><i class="fa-light fa-clock"></i></span>
+                                            </div>
+                                            <div class="tour-details-destination-info-title">
+                                                <p class="tour-details-destination-info-top mb-0">Duration</p>
+                                                <span class="tour-details-destination-info-bottom small"> 04 Night 05 Days
+                                                    
+                                                </span>
+                                            </div>
+                                        </div>
+                                       <div class="tour-details-destination-info">
+    <div class="search-icon-bg is-big">
+     <span><i class="fa-sharp fa-light fa-moped"></i></span>
+        </div>
+         <div class="tour-details-destination-info-title">
+         <p class="tour-details-destination-info-top mb-0">Tour Code</p>
+             &nbsp;  <span class="tour-details-destination-info-bottom small"> ART-UTT2</span>
+             </div></div>
+
+                                      
+                                        <div class="tour-details-destination-info">
+                                            <div class="search-icon-bg is-big">
+                                                <span><i class="fa-light fa-location-dot"></i></span>
+                                            </div>
+                                            <div class="tour-details-destination-info-title">
+                                                <p class="tour-details-destination-info-top mb-0">Location</p>
+                                                <span class="tour-details-destination-info-bottom">Uttarakhand</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                   
+                                    <div class="tour-details-faq mb-35">
+                                        <h4 class="mb-20">Tour Plan</h4>
+                                        <div class="accordion-wrapper faq-style-3">
+                                            <div class="accordion" id="accordionExampleThree">
+                                                <div class="accordion-item">
+                                                    <h6 class="accordion-header" id="headingNine">
+                                             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                           <span>Day 01:</span>Arrival In Delhi | Drive From Delhi To Nainital (315.6 Kms)</button> </h6>
+                         <div id="collapseNine" class="accordion-collapse collapse show" aria-labelledby="headingNine" data-bs-parent="#accordionExampleThree">
+                             <div class="accordion-body"><p align="justify">
+
+Once you reach the airport or railway station in Delhi, our representative will receive you. From here, drive towards Nainital – the beautiful lake town and hill station in Uttrakhand.
+<br><br>
+Nainital is a hill station in the Kumaon region, which is one of the two administrative divisions in the mountainous state of Uttrakhand. This town is situated in a valley and is named after the beautiful Naini Lake, which lies in its heart amidst hills and greenery. A revered Shakti Peeth lies towards the northern shore of this lake and adds an element of religiousness to the place. The hill station has a long association with the British Raj that is evident from its colonial structures from those times.
+<br><br>
+On reaching the destination, check-in at the hotel and spend the remaining day as per your wish. You can rest in the hotel room or go for boating on the sparkling Naini Lake (at your own expense).
+<br><br>
+Come back to the hotel for dinner and overnight stay.
+
+ </p>
+
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                       
+											   
+										<div class="accordion-item">
+                                         <h6 class="accordion-header" id="headingEleven">
+                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                             <span>Day 02:</span>  Sightseeing In Nainital </button>  </h6>
+                  <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#accordionExampleThree">
+                                             <div class="accordion-body"><p align="justify">
+
+In the morning, prepare yourself for sightseeing in and around Nainital. Start with a visit to Hanuman Garhi, which is a famous place of worship in the town. Nestled on a hilltop, this temple of Lord Hanuman was built and consecrated by the eminent saint named Neem Karoli Baba. It is not only a venerated site, but also a vantage point for beholding the scenic landscapes of the town. Sunset and sunrise are two unmissable views offered by this temple site.
+<br><br>
+Afterwards, drive towards the three lakes situated close to the town – Sattal, Naukuchiatal and Bhimtal. Each of these lakes lies at a short distance from the other that can easily be covered by a drive in minutes. Tucked away from the crowded locales, these lake sites offer quality time amidst nature's bounties. Shimmering waters reflecting the surrounding greenery are enough to enthral you while you are here. You can go for boating on the placid waters of these lakes, at your own expense. Bird watching, short strolls and photography are some other activities, which will keep you engaged at these places.
+<br><br>
+After a fun-filled day, retire to the hotel for a lavish meal and refreshing sleep. 
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+                                               				   
+															   
+															   
+															   
+									 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingFourteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+									   <span>Day 03:</span> Drive From Nainital To Kausani (116.1 Kms)</button>  </h6>
+                  <div id="collapseFourteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+In the morning, check-out from the hotel and drive towards Kausani – an idyllic destination in the hills of Uttrakhand. Mahatma Gandhi even referred to it as Mini Switzerland during his stay at the place. This hill station is known for its soaring conifers, green contours, glittering streams and silent valleys. It earns a considerable amount of fame for the unparalleled panorama of the Himalayas, which can be viewed from here. On the way to Kausani, pay a visit to Chaubatia and Kalika – two unfishable spots en route.
+<br><br>
+Chaubatia is a scenic ridge in Ranikhet that serves as a popular vantage point to behold the town's vistas. It is known for its lush fruit orchards, where the finest varieties of apples, plums and other fruits are cultivated. Next comes Kalika, which has a sprawling green golf course set amidst hilly terrains. A temple dedicated to the Hindu Goddess Kali is also situated here and is flocked by pilgrims throughout the year.
+<br><br>
+On reaching Kausani, check-in at the hotel and spend the night resting in your room.
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+																    
+																				   
+									 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingFifteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+									   <span>Day 04:</span> Drive From Kausani To Ranikhet (58.3 Kms)</button>  </h6>
+                  <div id="collapseFifteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+
+As the morning approaches, check-out from the hotel and proceed to the next destination – Ranikhet.
+<br><br>
+Nestled amidst hills and greenery, Ranikhet is a scenic and salubrious hill station in the Almora district of Uttrakhand. The name of this town means 'queen's meadow' and is derived from a local legend pertaining to Queen Padmini. It gained limelight after the British chose the place for establishing the headquarters of the Kumaon Regiment in 1869. Gradually, it became one of their favourite summer retreats for getting respite from the tropical weather of India.
+<br><br>
+The rich flora and fauna of this town along with remarkable natural beauty make it a sheer paradise for holidaymakers. Temples and ashrams of Ranikhet have always attracted devotees and seekers of spirituality. Check-in at the hotel and spend the remaining day at leisure.
+<br><br>
+Come back to the hotel for a relaxing overnight stay.
+
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+																    
+																								   
+									 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingSixteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
+									   <span>Day 05:</span>Drive From Ranikhet To Delhi (375.9 Kms)</button>  </h6>
+                  <div id="collapseSixteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+Have a hearty breakfast in the morning and check-out from the hotel after that. From here, drive to the airport or railway station in Delhi for your onward journey.
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+											
+											
+										
+											
+											
+												
+                                            </div>
+                                        </div>
+                                    </div>
+									
+									
+									
+									
+                                       <div class="tour-details-list-wrap mb-35">
+                                        <h4 class="mb-20">Include/ Exclude</h4>
+                                        <div class="tour-details-list-box">
+                                            <div class="tour-details-list-include">
+                                                 <ul>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        Accommodations
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        Meals
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        Transportation
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                        Welcome Drink
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon success">
+                                                            <i class="fa-solid fa-check"></i>
+                                                        </span>
+                                                       All taxes (toll taxes, fuels expense
+&<br> driver expense)
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tour-details-list-exclude">
+                                                <ul>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                          Flights Ticket & Airport Transfers
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                           Travel & Medical Insurance
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                           5% Govt. Service Tax
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                       Personal Expenses
+                                                    </li>
+                                                    <li>
+                                                        <span class="list-icon danger">
+                                                            <i class="fa-regular fa-xmark"></i>
+                                                        </span>
+                                                        Other Than Inclusion
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+									</div>
+									</div>
+									</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- tour-details area end -->
+
+    <!-- Body main wrapper end -->
+ 	   <footer class="bd-footer-area footer-bg image-bg fix">
+        <div class="section-space">
+            <div class="container"><br><br>
+                <div class="row justify-content-between">
+                    <div class="footer-grid">
+                        <div class="footer-1-col-1">
+                            <div class="footer-widget">
+                                
+                                 <div class="footer-widget-content"> <div class="footer-1-col-2">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">ADDRESS</h5>
+                            <div class="footer-widget-links">
+                               
+                                </div>
+                            </div>
+                        </div>
+                                <p><strong>Adventure Routes Travels </strong><br>Vill. Baindla, Post Office  Kalihatti,<br> Tehsil & District Shimla<br>
+                                Himachal Pradesh 171103</p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="footer-1-col-2">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">COMPANY</h5>
+                            <div class="footer-widget-links">
+                                 <ul>
+                                    <li class="underline"><a href="about-us.html">ABOUT US</a></li>
+									<li class="underline"><a href="services.html">SERVICES</a></li>
+									
+									 <li class="underline"><a href="taxi.html">TAXI</a> </li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-1-col-3">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">TOURS</h5>
+                            <div class="footer-widget-links">
+                                <ul>
+                                    <li class="underline"><a href="domestic.html">DOMESTIC TOUR </a></li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="footer-1-col-3">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">QUICK LINKS</h5>
+                            <div class="footer-widget-links">
+                                <ul>
+                                   <li class="underline"><a href="travel-policy.html">TRAVEL POLICY</a></li>
+									<li class="underline"><a href="pay-now.html">PAY NOW</a></li>
+                                   <li class="underline"><a href="book-now.html">BOOK NOW</a></li> 
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-1-col-5">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title  mb-15">CONTACT </h5>
+                                <div class="footer-btn pt-5">
+                                  
+                                   
+                                    <div class="apple-gallery-btn">
+                                      <div class="footer-call-wrap d-flex align-items-center gap-15">
+                                <div class="footer-call-icon">
+                                    <i class="icon-support"></i>
+                                </div>
+                                <div class="footer-call-content position-relative z-index-5">
+                                    <h6 class="footer-call-title">Speak our expert </h6>
+                                    <a class="footer-call-number b3" href="tel:+91 9625207876">+91 9625207876 <br> +91 8894102786 </a>
+                                </div>
+                            </div><BR>
+							<div class="d-flex flex-wrap align-items-center gap--5">
+                                    <span class="b6">Follow Us:</span>
+                                       <div class="theme-social">
+          <a href="https://www.facebook.com/people/Adventure-Routes-Travels/61561682203315/?mibextid=kFxxJD" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+				  <a href="https://www.instagram.com/adventure_routes_travels/?igsh=Z2tzMWNkaWJjYjc2&utm_source=qr" target="_blank"><i class="icon-instagram"></i></a>
+				  <a href="https://www.youtube.com/channel/UCZBHlpUsNuvlABRLaS_jirA?reload=9" target="_blank"><i class="icon-youtube"></i></a>
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="footer-copyright-area">
+            <div class="container">
+                <div class="row gy-24 align-items-center justify-content-between align-content-end">
+                    <div class="col-xl-8 col-lg-10 col-md-10 col-12">
+                        <div class="footer-copyright underline">
+                            <p>Copyright @<a href="adventureroutestravels.com" target="_blank">Adventure Routes Travels</a> |  Designed By <a href="https://honsol.com/">Honsol</a>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer area end -->
+    <!-- back to top -->
+    <!-- Backtotop start -->
+    <div class="backtotop-wrap cursor-pointer">
+        <svg class="backtotop-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Backtotop end -->
+
+    <!-- JS here -->
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/plugins/waypoints.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/plugins/meanmenu.min.js"></script>
+    <script src="assets/js/plugins/swiper.min.js"></script>
+    <script src="assets/js/plugins/wow.js"></script>
+    <script src="assets/js/plugins/dropzone.min.js"></script>
+    <script src="assets/js/vendor/magnific-popup.min.js"></script>
+    <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/vendor/purecounter.js"></script>
+    <script src="assets/js/plugins/nouislider.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/cleave.min.js"></script>
+    <script src="assets/js/plugins/flatpickr.js"></script>
+    <script src="assets/js/plugins/tinymce.min.js"></script>
+    <script src="assets/js/vendor/ajax-form.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+<!-------------------------------------------------whatsapp--------------------------------------------------------->
+	<style>
+.translator4 {
+	position: fixed;
+	left: 0;
+	bottom: 5%;
+	background-color: tranparent;
+	z-index: 999; 
+	border-radius: 6px;
+	min-height: 130px;
+}
+</style>
+
+<div class="translator4">
+<div class="call-enquiry">
+	<br>
+<p align="left"><a href="https://api.whatsapp.com/send?phone=+919625207876&amp;text=Hello%20Adventure Routes Travels,%20I%20Got%20A%20Query.%20My%20requirements%20are%20as%20follows:-"><img src="whatsapp.png" alt=" Adventure Routes Travels" title=" Adventure Routes Travels"></a></p>
+</div>
+</div> 
+<!-------------------------------------------------whatsapp--------------------------------------------------------->
+</html>

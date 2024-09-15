@@ -1,0 +1,979 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>   Adventure Routes Travels | Travel Policy   </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/chosen.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="assets/css/plugins/dropzone.min.css">
+    <link rel="stylesheet" href="assets/css/plugins/nouislider.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome-pro.css">
+    <link rel="stylesheet" href="assets/css/vendor/icomoon.css">
+    <link rel="stylesheet" href="assets/css/vendor/spacing.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+
+
+<!-------------------------------holiday----------------------------------->
+
+<script language="JavaScript" type="text/JavaScript">
+
+ function validfield(strval)
+
+{
+
+var checkOK = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+
+var checkStr = strval;
+
+var allValid = true;
+
+for (i = 0;  i < checkStr.length;  i++)
+
+{
+
+ch = checkStr.charAt(i);
+
+for (j = 0;  j < checkOK.length;  j++)
+
+if (ch == checkOK.charAt(j))
+
+break;
+
+if (j == checkOK.length)
+
+{
+
+allValid = false;
+
+break;
+
+}
+
+}
+
+    if (!allValid)
+
+    {
+
+      return false;
+
+    }
+
+    else
+
+    {
+
+      return true;
+
+    }
+
+}
+
+function emailCheck (emailStr) {
+
+
+
+var emailPat=/^(.+)@(.+)$/
+
+var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"
+
+var validChars="\[^\\s" + specialChars + "\]"
+
+var quotedUser="(\"[^\"]*\")"
+
+var ipDomainPat=/^\[(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\]$/
+
+var atom=validChars + '+'
+
+var word="(" + atom + "|" + quotedUser + ")"
+
+var userPat=new RegExp("^" + word + "(\\." + word + ")*$")
+
+var domainPat=new RegExp("^" + atom + "(\\." + atom +")*$")
+
+var matchArray=emailStr.match(emailPat)
+
+if (matchArray==null) {
+
+      alert("Email address seems incorrect (check @ and .'s)")
+
+    return false
+
+}
+
+var user=matchArray[1]
+
+var domain=matchArray[2]
+
+
+
+if (user.match(userPat)==null) {
+
+    // user is not valid
+
+    alert("The username doesn't seem to be valid.")
+
+    return false
+
+}
+
+
+
+var IPArray=domain.match(ipDomainPat)
+
+if (IPArray!=null) {
+
+   
+
+
+
+      for (var i=1;i<=4;i++) {
+
+        if (IPArray[i]>255) {
+
+            alert("Destination IP address is invalid!")
+
+        return false
+
+        }
+
+    }
+
+    return true
+
+}
+
+
+
+
+
+var domainArray=domain.match(domainPat)
+
+if (domainArray==null) {
+
+    alert("The domain name doesn't seem to be valid.")
+
+    return false
+
+}
+
+
+
+
+
+
+
+var atomPat=new RegExp(atom,"g")
+
+var domArr=domain.match(atomPat)
+
+var len=domArr.length
+
+if (domArr[domArr.length-1].length<2 ||
+
+    domArr[domArr.length-1].length>3) {
+
+   // the address must end in a two letter or three letter word.
+
+   alert("The address must end in a three-letter domain, or two letter country.")
+
+   return false
+
+}
+
+
+
+
+
+if (len<2) {
+
+   var errStr="This address is missing a hostname!"
+
+   alert(errStr)
+
+   return false
+
+}
+
+
+
+
+
+return true;
+
+}
+
+
+
+
+
+
+
+function checknumberornot(strval,intnum)
+
+{
+
+var checkStr = strval;
+
+var countval=0
+
+for (i = 0;  i < checkStr.length;  i++)
+
+   {
+
+    ch = checkStr.charAt(i);
+
+     if (isNaN(ch)==false)
+
+       {
+
+        countval++;
+
+        }
+
+       
+
+        else
+
+       
+
+        {
+
+        alert("Please Enter Mobile No. ONLY")
+
+           return false;
+
+          
+
+        }  
+
+    }
+
+   
+
+ 
+
+}
+
+
+
+function phonenumber(inputtxt)
+
+{
+
+  var phoneno = /^\d{10}$/;
+
+  if(inputtxt.value.match(phoneno))
+
+  {
+
+      return true;
+
+  }
+
+  else
+
+  {
+
+     alert("Not a valid Phone Number");
+
+     return false;
+
+	 
+
+  }
+
+  }
+
+
+
+
+
+function Validate1(tt){
+
+
+ 
+
+    if (tt.name.value=="")
+
+       {
+
+       alert("Enter the Name")
+
+       tt.name.focus();
+
+       return false;
+
+       }
+	      
+
+        
+
+   
+
+    if(tt.email.value=="")
+
+       {
+
+       alert("Enter Your Email Address")
+
+       tt.email.focus();
+
+       return false;
+
+       }
+
+      
+
+       if (emailCheck(tt.email.value)==false){
+
+       alert("Please Enter email")
+
+        tt.email.value=""
+
+        tt.email.focus();
+
+        return false;
+
+       }
+
+      
+
+      
+
+        if(tt.mobile.value=="")
+
+       {
+
+       alert("Enter the Mobile")
+
+       tt.mobile.focus();
+
+       return false;
+
+       }
+	   
+   if (phonenumber(document.form1.mobile)==false){
+        document.form1.mobile.focus();
+        return false;
+       }
+
+ 
+
+	   
+ if (tt.tdate.value=="")
+
+       {
+
+       alert("Select the Travel Date")
+
+
+
+       tt.tdate.focus();
+
+       return false;
+
+       }
+
+ }
+
+</script> 
+
+<!------------------------------------------------------------------------Form-end---------------------------------------------------------------------------------->
+<body>
+    
+       
+    <!-- Header area start -->
+    <!-- Header area start -->
+   <header>
+        <div id="header-sticky" class="header-area header-style header-style-one has-border">
+            <div class="container">
+                <div class="mega-menu-wrapper p-relative">
+                    <div class="header-main">
+                        <div class="header-left">
+                             <div class="header-logo">
+                                <a href="index.html" class="logo-primary">
+                                    <img src="assets/images/logo/logowhite.png" alt="logo">
+                                </a>
+                                <a href="index.html" class="logo-secondary">
+                                    <img src="assets/images/logo/logo-black-sub.png" alt="logo"  >
+                                </a>
+                            </div>
+                            <div class="header-menu">
+                                <nav class="main-menu" id="mobile-menu">
+                                    <ul>
+                                        <li class="has-mega-menu">
+                                            <a href="index.html">HOME</a>                                        </li>
+										
+										  <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">WHY US</a>
+                                   <ul class="submenu">
+									 <li><a href="about-us.html">ADVENTURE ROUTES TRAVELS </a></li>
+									  <li><a href="services.html">SERVICES</a></li>
+									   <li><a href="travel-policy.html">POLICY</a></li>
+                                   </ul>
+                                </li>
+							  <li class="menu-item-has-children">
+                                    <a href="javascript:void(0)">HOLIDAYS</a>
+                                   <ul class="submenu">
+									 <li><a href="domestic.html">DOMESTIC TOUR </a></li>
+                                   </ul>
+                                </li>
+								  <li class="has-mega-menu">
+                                    <a href="taxi.html">TAXI</a>									</li>
+									
+								  <li class="has-mega-menu">
+                                    <a href="book-now.html">BOOK</a>									 </li>
+                              
+                                <li class="has-mega-menu"><a href="pay-now.html">PAY</a></li>
+								  <li class="has-mega-menu"><a href="contact.html">CONTACT</a></li>	
+                            </ul>
+                        </nav>
+                            </div>
+                        </div>
+                         <div class="header-right d-flex align-items-center gap-24">
+                        <div class="header-btn d-none d-sm-block">
+                            <a href="travel-policy.html" class="bd-primary-btn btn-style has-arrow is-bg radius-60">
+                                <span class="bd-primary-btn-arrow arrow-right"><i class="fa-regular fa-arrow-right"></i></span>
+                                <span class="bd-primary-btn-text">Policy</span>
+                                <span class="bd-primary-btn-circle"></span>
+                                <span class="bd-primary-btn-arrow arrow-left"><i class="fa-regular fa-arrow-right"></i></span>
+                            </a>
+
+                        </div>
+                       <div class="header-hamburger ml-20 d-xl-none">
+                                    <div class="sidebar-toggle">
+                                        <a class="bar-icon" href="javascript:void(0)">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </a>
+                                    </div>
+                                </div>
+								
+
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header area end -->
+    <!-- Header area end -->
+
+    <!-- Offcanvas area start -->
+  <div class="fix">
+        <div class="offcanvas-area">
+            <div class="offcanvas-wrapper">
+                <div class="offcanvas-content">
+                    <div class="offcanvas-top d-flex justify-content-between align-items-center mb-25">
+                        <div class="offcanvas-logo">
+                            <a href="index.html">
+                                <img src="assets/images/logo/logo-black.png" alt="logo">
+                            </a>
+                        </div>
+                        <div class="offcanvas-close">
+                            <button class="offcanvas-close-icon animation--flip">
+                                <span class="offcanvas-m-lines">
+                                <span class="offcanvas-m-line line--1"></span><span
+                                    class="offcanvas-m-line line--2"></span><span
+                                    class="offcanvas-m-line line--3"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                   
+                    <div class="mobile-menu fix mb-25"></div>
+                   
+                    <div class="offcanvas-contact mb-25">
+                        <h4 class="offcanvas-title-meta">Contact Info</h4>
+                        <ul>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a target="_blank" href="">
+                                        <i class="fal fa-map-marker-alt"></i></a>
+                                </div>
+                                 <div class="offcanvas-contact-text">
+                                      <a target="_blank" href="">Adventure Routes Travels <br>
+Vill. Baindla, Post Office Kalihatti,<br>
+Tehsil & District Shimla<br>
+Himachal Pradesh 171103 </a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a href="tel:+91 9625207876"><i class="far fa-phone"></i></a>
+                                </div>
+                                <div class="offcanvas-contact-text">
+                                    <a href="tel:+91 9625207876">+91 9625207876 <br> +91 8894102786</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center gap-10">
+                                <div class="offcanvas-contact-icon">
+                                    <a href=""><i class="fal fa-envelope"></i></a>
+                                </div>
+                                <div class="offcanvas-contact-text">
+                                    <a href=""><span class="__cf_email__" data-cfemail="">info@adventureroutestravels.com</span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                  
+                    <div class="offcanvas-social">
+                        <h4 class="offcanvas-title-meta">Subscribe & Follow</h4>
+                        <ul>
+                            <li><a href="https://www.facebook.com/people/Adventure-Routes-Travels/61561682203315/?mibextid=kFxxJD" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                            <a href="https://www.instagram.com/adventure_routes_travels/?igsh=Z2tzMWNkaWJjYjc2&utm_source=qr" target="_blank"><i class="icon-instagram"></i></a>
+                            <li><a href="https://www.youtube.com/channel/UCZBHlpUsNuvlABRLaS_jirA?reload=9" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                      
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-overlay"></div>
+    <div class="offcanvas-overlay-white"></div>
+    <!-- Offcanvas area start -->
+              <!-- breadcrumb area start -->
+  <section class="bd-breadcrumb-area p-relative fix">
+            <!-- breadcrumb background image -->
+          <div class="bd-breadcrumb-bg" data-background="assets/images/bg/breadcrumb-bg.png"></div>
+            <div class="bd-breadcrumb-wrapper p-relative">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-10">
+                            <div class="bd-breadcrumb d-flex align-items-center justify-content-center">
+                                <div class="bd-breadcrumb-content text-center">
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- breadcrumb area end -->
+<br><br>
+        <!-- tour-details area start --> <section class="bd-tour-details-area section-space">
+            <div class="container">
+                <div class="row gy-24">
+                    <div class="col-xxl-4 col-xl-4 col-lg-5 order-lg-0 order-1">
+                        <aside class="sidebar-wrapper sidebar-sticky sidebar-left">
+                            <div class="sidebar-widget-wrapper mb-30">
+                                <div class="sidebar-widget widget">
+                                
+                                
+                               
+                                <div class="sidebar-widget widget">
+                                    <h6 class="sidebar-widget-title small mb-15">Get Customize Tour</h6>
+                                  <div class="sidebar-booking">
+                                        <form class="sidebar-booking-form"  action="sidebar-booking.php" onSubmit="return Validate1(this)" method="post" name="form1" > 
+
+                                            <div class="input-box">
+                                               <input type="text" class="form_control" placeholder="Name" name="name">
+                                            </div>
+                                            <div class="input-box">
+                                                <input type="text" class="form_control" placeholder="E-mail" name="email">
+                                            </div>
+                                            <div class="input-box">
+                                             <input type="text" class="form_control" placeholder="Mobile" name="mobile">
+                                            </div>
+                                            <div class="input-box">
+						 <strong>Travel Date</strong>
+                                             <input type="date" class="form_control"  name="tdate">
+                                            </div>			 
+								 
+                                            <div class="booking-btn">
+					    <button class="bd-btn btn-style radius-4 w-55">&nbsp;&nbsp;Send Now&nbsp;&nbsp;<span></span></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                               
+                               
+                            </div><br><br>
+                            <div class="sidebar-widget-banner p-relative">
+                                <div class="sidebar-widget-thumb p-relative">
+                                    <img src="assets/images/bg/sidebar-img.png" alt="img">
+                                </div>
+                                <div class="sidebar-widget-content">
+                                    <span class="bd-play-btn pulse-white mb-40"><i
+                                            class="icon-call-ring"></i></span>
+                                    <p class="b3 mb-0">Free Call</p>
+                                    <h5 class="mb-25"><a href="tel:+91 9625207876">+91 9625207876</a></h5>
+                                    <div class="sidebar-btn">
+                                        <a class="bd-text-btn style-two" href="contact.html">Contact
+                                            <span class="icon__box">
+                                                <i class="fa-light fa-angle-right icon__first"></i>
+                                                <i class="fa-light fa-angle-right icon__second"></i>
+                                            </span>
+                                        </a>
+										</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="col-xxl-8 col-xl-8 col-lg-7 order-lg-1 order-0">
+                        <div class="tour-details-wrapper">
+                              <div class="tour-details mb-25"><br>
+						 <div class="tour-details-content">
+                                   <h6 class="sidebar-widget-title small mb-15"><font color="#F4783C" size="+2"> Travel Policy</font></h6>
+                                    </div>
+                                
+                                <div class="tour-details-content">
+                                    
+                                   <p>Adventure Routes Travels <BR> <span class="section-subtitle mb-10">Don't be a Tourist be a Traveller ...</span></p>                     
+     <div class="tour-details-meta d-flex flex-wrap gap-10 align-items-center justify-content-between mb-20">
+                                    </div>
+                                   
+                                    <div class="tour-details-faq mb-35">
+                                    
+                                        <div class="accordion-wrapper faq-style-3">
+                                            <div class="accordion" id="accordionExampleThree">
+											
+                                                         <div class="accordion-item">
+                                                    <h6 class="accordion-header" id="headingNine">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                                     Cancellation  Policy   </button> </h6>
+                         <div id="collapseNine" class="accordion-collapse collapse show" aria-labelledby="headingNine" data-bs-parent="#accordionExampleThree">
+                             <div class="accordion-body"><p align="justify">
+
+
+If the Client is willing to amend or cancel his/her booking because of whatsoever reasons including accident, illness, or any other personal reasons including non-payment of the balance payment, the Company is liable to recover Cancellation charges from the Client. All cancellations are to be communicated in written, a further charge will be levied as follows :-
+<br><br>
+Cancellations will be considered only if the request is made within 72 hours of placing an order. However, the cancellation request will not be entertained if the booking dates have been communicated to the hotels, transporters etc. and they have initiated the process of retaining/booking.
+<br><br>
+There is no cancellation of booking under the Same Day booking category.
+<br><br>
+No cancellations are entertained for those bookings that has obtained on special occasions like Pongal, Diwali, Valentine’s Day, Christmas, New year and peak season time etc. These are limited occasion offers and therefore cancellations are not possible.
+<br><br>
+We acts only as a booking agent of the Hotel Accommodation & Transport providing the services and it shall not have any liability whatsoever for any aspect of the arrangements between the service provider and user as regards the standards of services provider in no circumstance shall  Adventure Routes Travels be liable for services provided by the service vender and no responsibility as the principal.
+<br><br>
+We shall not in any way is responsible for any loss or theft of goods or any property of the tourist during visit or in the reservation/booking office. Luggage is carried at owner’s risk.
+
+ </p>
+
+                                                           
+                                                        </div>
+                                                    </div>
+                                                </div>
+                       
+					   
+					   
+					   
+											   
+										<div class="accordion-item">
+                                         <h6 class="accordion-header" id="headingEleven">
+                                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                                             Reservation Policy</button>  </h6>
+                  <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve" data-bs-parent="#accordionExampleThree">
+                                             <div class="accordion-body"><p align="justify">
+
+
+50% Payment required at the time of reservation.<br>
+Full & Final Payment required at the time of checking in.<br>
+No refund will be made in case of mechanical trouble to the vehicle or natural calamities like, landslides, flood, earthquake, heavy snow fall or any other reason beyond the control of the Company.<br><br>
+
+We Centre shall not be responsible in any matter whatsoever for any delay or inconvenience to the passengers during the journey either due to the breakdown of the vehicle or due to any other cause/unforeseen circumstances beyond our control.<br><br>
+
+All the above hotel cancellation for FIT & GIT is subject to all individual hotels terms & conditions.<br>
+For postpone / Prep-one of tour packages are to be communicated in written and need to be inform us at least 15 days prior of tour date.<br><br>
+
+INR 20%/- will be charged extra for Prep one / postpone.<br>
+
+60 days pre-travel date 80% of the amount paid will be refunded
+59-40 days pre-travel date 50% of the amount paid will be refunded
+39-25 days pre-travel date 25% of the amount paid will be refunded
+24-15 days pre-travel date 15% of the amount paid so far refunded<br><br>
+
+Less than 15 days No Refund<br><br>
+
+For the above terms and conditions mentioned in our website so as to clearly understand that the  Adventure Routes Travels liability is limited and restricted to what has been forth herein in the website's terms & conditions section. 
+
+
+                                                     </p>
+													 </div>
+                                                    </div>
+                                                </div>
+                                               				   
+															 
+															   
+															   
+															   
+									 <div class="accordion-item">
+                                      <h6 class="accordion-header" id="headingFourteen">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+									Terms & Conditions</button>  </h6>
+                  <div id="collapseFourteen" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExampleThree">
+                                     <div class="accordion-body"><p align="justify">
+
+ 
+
+ If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern  Adventure Routes Travels relationship with you in relation to this website.<br><br>
+
+<strong>Our Valued Guest :</strong>
+As part of our effort to provide you hassle-free, enjoyable holiday the 'Terms and Conditions' below is our contract with you to prevent misunderstandings between the tour escorts/facilitators, the company and you at any time in the course of the travel. Please spare us some of your valuable time. We require you to read and ACCEPT all the terms and conditions, before you contract our services.<br><br>
+
+The term  Adventure Routes Travels or 'us' or 'we' refers to the owner of the website whose registered office is Shimla. The term 'you' refers to the user or viewer of our website.<br><br>
+
+The use of this website is subject to the following terms of use:<br><br>
+
+“Company/We/Us” means  Adventure Routes Travels<br><br>
+
+The content of the pages of this website is for your general information and use only. It is subject to change without notice.<br><br>
+
+Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.<br><br>
+
+Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.<br><br>
+
+"We as a merchant shall be under no liability whatsoever in respect of any loss or damage arising directly or indirectly out of the decline of authorization for any Transaction, on Account of the Cardholder having exceeded the preset limit mutually agreed by us with our acquiring bank from time to time"<br><br>
+
+<strong>Jurisdiction : </strong>
+All disputes pertaining to the tour and travel, travel-related services, adventure activities conducted by the Company, and any claim arising there-under shall be subjected to Shimla H.P., India jurisdiction only.<br><br>
+
+<strong>Scope of Activity :</strong>
+We are travel and holiday organizers only. We do not provide insurance services. We also do not process claims of any kind. All adventure activities are risky sports, involvement in such activities is guest(s) own choice / risk and we do not take any responsibility for mishaps or accidents. We do not accept any claim.<br><br>
+
+<strong>Accommodation and Transport :</strong>
+Hotels/Room Accommodation provided is generally on a twin sharing bases so single occupancy, arising for whatever reason, will cost more. Extra bed will also be charges as per hotel specified rates. Guests will have to abide by the check-in/out time of the respective hotels. Early arrivals/late departures or overstays due for whatever reason is the responsibility of the guests themselves. Use of hotel services and amenities are the responsibility of the guests.<br><br>
+
+<strong>Meals :</strong>
+There is a pre-set menu for meals as per the tour program. We reserve the right to change the meal arrangements if circumstances demand us to do so. A tour participant missing a meal for whatever reason can not the meal missed.<br><br>
+
+<strong>Transport :</strong>
+Our cars are allotted on the booking priority basis. Each transport operators have their own set of rules that must be complied. The company is not liable to any dispute arising from non-compliance of such rules. Any damages caused by you during the travel shall be payable by you.<br><br>
+
+<strong>Safety and Health Matters :</strong>
+All baggage and personal effects shall be at all times and in all circumstances, the responsibility of passengers. We are not responsible for any type of loss and damage (baggage or person). Health matters should be the sole responsibility of the traveler. Adequate travel insurance cover is strongly recommended. It shall be duty of the guest to inform the Company of any medical condition(s) that may affect his ability to undertake the activities or could negatively affect the interest of the group. Under such situation, the Company reserves the right to deny the guest participation in some of the activities with no refund.<br><br>
+
+<strong>Itinerary Changes :</strong>
+Sometimes we may make amendments to the itinerary, due to unforeseen developments such as unavailability of sights, adverse climatic conditions etc. In some cases such changes could mean extra charges but you will be informed of the complete details. In the event of the Company exercising its rights to amend any aspect of the services, the guest(s) shall have to continue with the program as amended.<br><br>
+
+<strong>Payments :</strong>
+The amount paid at the time of booking, is non-refundable. We do not accept any form of cheques. The bookings will be processed only after 25% of the total amount has been paid. The full amount must be paid fifteen days before the tour/stay starts. We will send a reminder of full payment 20 days before the tour/stay starts. Failure to deliver complete payment will result in cancellation of the arrangement. For instant bookings or on-the-spot booking, 100% payment is required before bookings are processed.<br><br>
+
+<strong>Travel Documents :</strong>
+It is the sole responsibility of the guest(s) to collect in time and hold valid travel documents and statutory clearances, such as passports, visas, confirmed air/rail tickets, insurance and medical insurance certificates, any other document used to confirm an arrangement with service provider and other statutory certificates, to enable him/her to travel on tour. It is the guest(s) responsibility to collect in time, the necessary travel documents or other documents from the booking office. Essential travel documents must be in the hands of the Owner at all times, and be ready in case of checks by local authorities.<br><br>
+
+Personal documents are non-transferable. The company will not accept request for help in replacing lost documents. If in the course of the tour, a guest(s) is refused entry by authorities due to missing personal document, the guest cannot claim compensation from the company.<br><br>
+
+<strong>Privacy of Information :</strong>
+We treat all information furnished by you as confidential and will exercise extreme discretion in using the information. However, we may be constrained to disclose the information furnished by you, if such disclosure is required by law or by an order of the court or the rules, regulations & enquiry by any govt./statutory agency having regulatory authority over the Company. The company also reserves the right to publish the guests' photograph or group’s photograph taken during the tour.<br><br>
+
+Guest's acceptance and/or signature on the booking form shall mean complete acceptance of the 'Terms and Conditions' contained herein by the guest(s). In case of one person is acting in behalf of the other members of the Group signing the 'I ACCEPT’, it shall be deemed that the others have duly authorized the concerned signing person. The signing person has to write down the names of the members under his name.
+
+                                                     </p>
+													 
+													 			
+									<p align="justify"><i class="fa fa-check-square"></i>  adventureroutestravels.com</p>
+											
+										<p align="justify"><i class="fa fa-check-square"></i>	Himachal Tourism Reg. - </p>
+
+	                                          <p align="justify"><i class="fa fa-check-square"></i>  Address – Adventure Routes Travels<br>
+					
+Baindla, Post Office Kalihatti,
+Tehsil & District Shimla
+Himachal Pradesh 171103 </p>
+													 </div>
+                                                    </div>
+                                                </div>
+																    
+																				   
+												    
+														 
+												
+												
+                                            </div>
+                                        </div>
+                                    </div>
+									
+									
+									
+									
+                                       
+									</div>
+									</div>
+									</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- tour-details area end -->
+
+    <!-- Body main wrapper end -->
+ 	   <footer class="bd-footer-area footer-bg image-bg fix">
+        <div class="section-space">
+            <div class="container"><br><br>
+                <div class="row justify-content-between">
+                    <div class="footer-grid">
+                        <div class="footer-1-col-1">
+                            <div class="footer-widget">
+                                
+                                 <div class="footer-widget-content"> <div class="footer-1-col-2">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">ADDRESS</h5>
+                            <div class="footer-widget-links">
+                               
+                                </div>
+                            </div>
+                        </div>
+                                <p><strong>Adventure Routes Travels </strong><br>Vill. Baindla, Post Office  Kalihatti,<br> Tehsil & District Shimla<br>
+                                Himachal Pradesh 171103</p>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="footer-1-col-2">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">COMPANY</h5>
+                            <div class="footer-widget-links">
+                                 <ul>
+                                    <li class="underline"><a href="about-us.html">ABOUT US</a></li>
+									<li class="underline"><a href="services.html">SERVICES</a></li>
+									
+									 <li class="underline"><a href="taxi.html">TAXI</a> </li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-1-col-3">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">TOURS</h5>
+                            <div class="footer-widget-links">
+                                <ul>
+                                    <li class="underline"><a href="domestic.html">DOMESTIC TOUR </a></li>
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="footer-1-col-3">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title">QUICK LINKS</h5>
+                            <div class="footer-widget-links">
+                                <ul>
+                                   <li class="underline"><a href="travel-policy.html">TRAVEL POLICY</a></li>
+									<li class="underline"><a href="pay-now.html">PAY NOW</a></li>
+                                   <li class="underline"><a href="book-now.html">BOOK NOW</a></li> 
+                                </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-1-col-5">
+                            <div class="footer-widget">
+                                <h5 class="footer-widget-title  mb-15">CONTACT </h5>
+                                <div class="footer-btn pt-5">
+                                  
+                                   
+                                    <div class="apple-gallery-btn">
+                                      <div class="footer-call-wrap d-flex align-items-center gap-15">
+                                <div class="footer-call-icon">
+                                    <i class="icon-support"></i>
+                                </div>
+                                <div class="footer-call-content position-relative z-index-5">
+                                    <h6 class="footer-call-title">Speak our expert </h6>
+                                    <a class="footer-call-number b3" href="tel:+91 9625207876">+91 9625207876 <br> +91 8894102786 </a>
+                                </div>
+                            </div><BR>
+							<div class="d-flex flex-wrap align-items-center gap--5">
+                                    <span class="b6">Follow Us:</span>
+                                       <div class="theme-social">
+          <a href="https://www.facebook.com/people/Adventure-Routes-Travels/61561682203315/?mibextid=kFxxJD" target="_blank"><i class="fab fa-facebook-f"></i></a> 
+				  <a href="https://www.instagram.com/adventure_routes_travels/?igsh=Z2tzMWNkaWJjYjc2&utm_source=qr" target="_blank"><i class="icon-instagram"></i></a>
+				  <a href="https://www.youtube.com/channel/UCZBHlpUsNuvlABRLaS_jirA?reload=9" target="_blank"><i class="icon-youtube"></i></a>
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="footer-copyright-area">
+            <div class="container">
+                <div class="row gy-24 align-items-center justify-content-between align-content-end">
+                    <div class="col-xl-8 col-lg-10 col-md-10 col-12">
+                        <div class="footer-copyright underline">
+                            <p>Copyright @<a href="adventureroutestravels.com" target="_blank">Adventure Routes Travels</a> |  Designed By <a href="https://honsol.com/">Honsol</a>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer area end -->
+    <!-- back to top -->
+    <!-- Backtotop start -->
+    <div class="backtotop-wrap cursor-pointer">
+        <svg class="backtotop-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Backtotop end -->
+
+    <!-- JS here -->
+    <script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/plugins/waypoints.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/plugins/meanmenu.min.js"></script>
+    <script src="assets/js/plugins/swiper.min.js"></script>
+    <script src="assets/js/plugins/wow.js"></script>
+    <script src="assets/js/plugins/dropzone.min.js"></script>
+    <script src="assets/js/vendor/magnific-popup.min.js"></script>
+    <script src="assets/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="assets/js/vendor/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/vendor/purecounter.js"></script>
+    <script src="assets/js/plugins/nouislider.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/cleave.min.js"></script>
+    <script src="assets/js/plugins/flatpickr.js"></script>
+    <script src="assets/js/plugins/tinymce.min.js"></script>
+    <script src="assets/js/vendor/ajax-form.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+
+<!-------------------------------------------------whatsapp--------------------------------------------------------->
+	<style>
+.translator4 {
+	position: fixed;
+	left: 0;
+	bottom: 5%;
+	background-color: tranparent;
+	z-index: 999; 
+	border-radius: 6px;
+	min-height: 130px;
+}
+</style>
+
+<div class="translator4">
+<div class="call-enquiry">
+	<br>
+<p align="left"><a href="https://api.whatsapp.com/send?phone=+919625207876&amp;text=Hello%20Adventure Routes Travels,%20I%20Got%20A%20Query.%20My%20requirements%20are%20as%20follows:-"><img src="whatsapp.png" alt=" Adventure Routes Travels" title=" Adventure Routes Travels"></a></p>
+</div>
+</div> 
+<!-------------------------------------------------whatsapp--------------------------------------------------------->
+</html>
