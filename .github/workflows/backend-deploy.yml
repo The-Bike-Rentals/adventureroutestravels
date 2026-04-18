@@ -17,6 +17,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Validate deployment configuration
+        run: |
+          test -n "${{ secrets.AZURE_WEBAPP_NAME_ADV_RT_TRVLS_BACKEND }}" || (echo "Missing secret: AZURE_WEBAPP_NAME_ADV_RT_TRVLS_BACKEND" && exit 1)
+          test -n "${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_ADV_RT_TRVLS_BACKEND }}" || (echo "Missing secret: AZURE_WEBAPP_PUBLISH_PROFILE_ADV_RT_TRVLS_BACKEND" && exit 1)
+          test -n "${{ vars.BACKEND_PORT }}" || (echo "Missing repository variable: BACKEND_PORT" && exit 1)
+          test -n "${{ vars.BACKEND_SMTP_HOST }}" || (echo "Missing repository variable: BACKEND_SMTP_HOST" && exit 1)
+          test -n "${{ vars.BACKEND_SMTP_PORT }}" || (echo "Missing repository variable: BACKEND_SMTP_PORT" && exit 1)
+          test -n "${{ secrets.BACKEND_SMTP_USER }}" || (echo "Missing secret: BACKEND_SMTP_USER" && exit 1)
+          test -n "${{ secrets.BACKEND_SMTP_PASS }}" || (echo "Missing secret: BACKEND_SMTP_PASS" && exit 1)
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -30,6 +40,40 @@ jobs:
 
       - name: Remove local env file from deploy package
         run: rm -f backend/.env
+
+      - name: Configure Azure Web App environment variables
+        uses: azure/appservice-settings@v1
+        with:
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME_ADV_RT_TRVLS_BACKEND }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_ADV_RT_TRVLS_BACKEND }}
+          app-settings-json: |
+            [
+              {
+                "name": "PORT",
+                "value": "${{ vars.BACKEND_PORT }}",
+                "slotSetting": false
+              },
+              {
+                "name": "SMTP_HOST",
+                "value": "${{ vars.BACKEND_SMTP_HOST }}",
+                "slotSetting": false
+              },
+              {
+                "name": "SMTP_PORT",
+                "value": "${{ vars.BACKEND_SMTP_PORT }}",
+                "slotSetting": false
+              },
+              {
+                "name": "SMTP_USER",
+                "value": "${{ secrets.BACKEND_SMTP_USER }}",
+                "slotSetting": false
+              },
+              {
+                "name": "SMTP_PASS",
+                "value": "${{ secrets.BACKEND_SMTP_PASS }}",
+                "slotSetting": false
+              }
+            ]
 
       - name: Deploy backend to Azure Web App
         uses: azure/webapps-deploy@v3
