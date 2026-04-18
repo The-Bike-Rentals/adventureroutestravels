@@ -1,41 +1,34 @@
-# Docs for the Azure Static Web Apps Deploy action: https://github.com/Azure/static-web-apps-deploy
-
-name: Build and deploy static app to Azure Static Web App - adventureroutestravel
+name: Deploy Frontend to Azure Static Web Apps
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
+    paths:
+      - frontend/**
+      - .github/workflows/main_adventureroutestravel.yml
   workflow_dispatch:
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Build and Deploy Frontend
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: 'Deploy to Azure Static Web App'
-        uses: Azure/static-web-apps-deploy@v1
-        id: deploy-to-webapp
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ASHY_BUSH_0A19AAC00 }}
-          action: 'upload'
-          app_location: '.'
-          output_location: '.'
+      - name: Inject backend API URL into config.js
+        run: |
+          test -n "${{ secrets.ART_API_URL }}" || (echo "Missing repo variable: ART_API_URL" && exit 1)
+          sed -i "s|__ART_API_URL__|${{ secrets.ART_API_URL }}|g" frontend/assets/js/config.js
 
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
-    steps:
-      - name: Close Pull Request
+      - name: Deploy to Azure Static Web Apps
+        id: swa-deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          action: 'close'
+          azure_static_web_apps_api_token: ${{ secrets.ADV_RT_TRVLS_FRONTEND_SWS_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: upload
+          app_location: frontend
+          output_location: ""
