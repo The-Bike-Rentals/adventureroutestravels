@@ -266,29 +266,7 @@ Himachal Pradesh 171103 </a>
                                                 <br>
                          <div id="collapseNine" class="accordion-collapse collapse show" aria-labelledby="headingNine" data-bs-parent="#accordionExampleThree">
                              <div class="accordion-body"><p align="justify">
-										<?
-                               
-							  $name = ltrim($_POST['name']);
-							$email = ltrim($_POST['email']);
-							$mobile = ltrim($_POST['mobile']);
-							$message = ltrim($_POST['message']);
-						
-							 
-							  
-
-                  if (($name!=='') && ($email!=='') && ($mobile!=='') && ($message!==''))
-
-			  { 
-						  $emailmessage.="Query  From  Website [adventureroutestravels.com/\r\n";
-			              $emailmessage.="Your Name........: ".$_POST["name"]." \r\n";
-					      $emailmessage.="Your Email Address........: ".$_POST["email"]." \r\n"; 
-						  $emailmessage.="Your Mobile........: ".$_POST["mobile"]." \r\n";
-						  $emailmessage.="Your Message........: ".$_POST["message"]." \r\n";
-						
-						     
-               if(mail("info@adventureroutestravels.com"," Query From Website [adventureroutestravels.com/
-",$emailmessage,"From: ".$_POST["name"]." <".$_POST["email"].">\r\nReply-To: ".$_POST["name"]." <".$_POST["email"].">\r\nX-Mailer: PHP/".phpversion()))
-			   ?>
+										
  
 							
 				   		
@@ -297,20 +275,11 @@ Himachal Pradesh 171103 </a>
                           For immediate assistance, Please call us at <a href="tel:+91-9625207876"><strong>+91-9625207876 </strong>  </a></p>  <bR>
 							    
                             <strong>Feel Free to Contact With Us</strong> ! 
-			 <?   }
 			 
-			 else
-
-                           {
-                           echo "Please Fill Up the Complete Form.....";?>
 						    <meta http-equiv=REFRESH CONTENT="1;url=https://adventureroutestravels.com/?a=10">
 
                          
-                           <?
-
-                           }
-			 
- ?>
+                           
 
  </p>                                          
                                                    </div>
@@ -462,6 +431,7 @@ Himachal Pradesh 171103 </a>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.7.3/tinymce.min.js"></script>
     <script src="assets/js/vendor/ajax-form.js"></script>
+    <script src="assets/js/config.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 

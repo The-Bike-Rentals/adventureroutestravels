@@ -1,0 +1,50 @@
+{
+  "routes": [
+    {
+      "route": "/book-main-tour-itin.php",
+      "redirect": "/book-main-tour-itin.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/sidebar-booking.php",
+      "redirect": "/sidebar-booking.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/sidebar-booknow.php",
+      "redirect": "/sidebar-booknow.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/book-now.php",
+      "redirect": "/book-now.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/thankyou.php",
+      "redirect": "/thankyou.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/thanks.php",
+      "redirect": "/thanks.html",
+      "statusCode": 301
+    },
+    {
+      "route": "/default.php",
+      "redirect": "/index.html",
+      "statusCode": 301
+    }
+  ],
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html",
+      "statusCode": 200
+    }
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  }
+}

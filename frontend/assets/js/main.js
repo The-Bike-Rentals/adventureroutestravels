@@ -1329,7 +1329,99 @@
       });
     }
   };
-  
+
+    /*======================================
+      PHP Form Migration — API-based email
+      API URL: set window.ART_API_URL before this script loads (via config.js),
+      or it falls back to localhost for local development.
+    ========================================*/
+    var ART_API_URL = ((window.ART_API_URL) || 'http://localhost:3010').replace(/\/$/, '');
+
+    $(document).ready(function () {
+        $('form').each(function () {
+            var $form = $(this);
+            var action = ($form.attr('action') || '').trim();
+            if (!action.match(/\.php(\?.*)?$/i)) { return; }
+
+            // Neutralise the PHP action so a JS-disabled fallback is harmless
+            $form.attr('action', '#');
+            $form.removeAttr('onSubmit');
+
+            // Insert a feedback message container right after the form
+            if ($form.next('.art-feedback').length === 0) {
+                $form.after('<div class="art-feedback" style="display:none;padding:10px 14px;border-radius:4px;margin-top:10px;font-size:14px;line-height:1.5;"></div>');
+            }
+
+            $form.on('submit', function (e) {
+                e.preventDefault();
+                var $feedback = $form.next('.art-feedback');
+                var $btn      = $form.find('button[type="submit"], input[type="submit"]');
+
+                // Collect every named field into a key→value map
+                var fields = {};
+                $form.find('[name]').each(function () {
+                    var n = $(this).attr('name');
+                    var v = $(this).val();
+                    if (n && v && v !== 'select') { fields[n] = v; }
+                });
+
+                // Build human-readable message from all non-email/phone fields
+                var msgLines = [];
+                var fieldLabels = {
+                    name: 'Name', tdate: 'Travel Date', desti: 'Destination',
+                    tdesti: 'Destination', tourname: 'Tour', ndays: 'Duration',
+                    message: 'Message'
+                };
+                $.each(fields, function (k, v) {
+                    if (k === 'email' || k === 'mobile') { return; }
+                    var label = fieldLabels[k] || (k.charAt(0).toUpperCase() + k.slice(1));
+                    msgLines.push(label + ': ' + v);
+                });
+
+                var payload = {
+                    email:   fields['email']   || '',
+                    phone:   fields['mobile']  || '',
+                    message: msgLines.join('\n')
+                };
+
+                if (!payload.email && !payload.phone && !payload.message) {
+                    $feedback.css({ background: '#fff3cd', color: '#856404', border: '1px solid #ffc107' })
+                             .text('Please fill in the form before submitting.')
+                             .show();
+                    return;
+                }
+
+                var origHtml = $btn.html();
+                $btn.prop('disabled', true).text('Sending…');
+                $feedback.hide();
+
+                $.ajax({
+                    url:         ART_API_URL + '/send-email',
+                    method:      'POST',
+                    contentType: 'application/json',
+                    data:        JSON.stringify(payload),
+                    success: function () {
+                        $form.hide();
+                        $feedback.css({ background: '#d4edda', color: '#155724', border: '1px solid #c3e6cb' })
+                                 .html('<strong>Thank you!</strong> Your query has been submitted successfully. ' +
+                                       'Our team will get back to you within 24 hours.<br>' +
+                                       'For immediate assistance call ' +
+                                       '<a href="tel:+919625207876"><strong>+91-9625207876, +91-8894102786</strong></a>.')
+                                 .show();
+                    },
+                    error: function (xhr) {
+                        $btn.prop('disabled', false).html(origHtml);
+                        var msg = (xhr.responseJSON && xhr.responseJSON.message)
+                                  ? xhr.responseJSON.message
+                                  : 'Something went wrong. Please call us at +91-9625207876.';
+                        $feedback.css({ background: '#f8d7da', color: '#721c24', border: '1px solid #f5c6cb' })
+                                 .text(msg)
+                                 .show();
+                    }
+                });
+            });
+        });
+    });
 
 
 
