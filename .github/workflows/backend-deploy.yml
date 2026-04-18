@@ -31,40 +31,6 @@ jobs:
       - name: Remove local env file from deploy package
         run: rm -f backend/.env
 
-      - name: Configure Azure Web App environment variables
-        uses: azure/appservice-settings@v1
-        with:
-          app-name: ${{ secrets.AZURE_WEBAPP_NAME_ADV_RT_TRVLS_BACKEND }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_ADV_RT_TRVLS_BACKEND }}
-          app-settings-json: |
-            [
-              {
-                "name": "PORT",
-                "value": "${{ vars.BACKEND_PORT }}",
-                "slotSetting": false
-              },
-              {
-                "name": "SMTP_HOST",
-                "value": "${{ vars.BACKEND_SMTP_HOST }}",
-                "slotSetting": false
-              },
-              {
-                "name": "SMTP_PORT",
-                "value": "${{ vars.BACKEND_SMTP_PORT }}",
-                "slotSetting": false
-              },
-              {
-                "name": "SMTP_USER",
-                "value": "${{ secrets.BACKEND_SMTP_USER }}",
-                "slotSetting": false
-              },
-              {
-                "name": "SMTP_PASS",
-                "value": "${{ secrets.BACKEND_SMTP_PASS }}",
-                "slotSetting": false
-              }
-            ]
-
       - name: Deploy backend to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
