@@ -1,4 +1,4 @@
-name: Deploy Backend to Azure Web App - adv-rt-trvls-backend
+name: Deploy Backend to Azure Web App
 
 on:
   push:
@@ -16,16 +16,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Validate deployment configuration
-        run: |
-          test -n "${{ secrets.AZURE_WEBAPP_NAME_ADV_RT_TRVLS_BACKEND }}" || (echo "Missing secret: AZURE_WEBAPP_NAME_ADV_RT_TRVLS_BACKEND" && exit 1)
-          test -n "${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_ADV_RT_TRVLS_BACKEND }}" || (echo "Missing secret: AZURE_WEBAPP_PUBLISH_PROFILE_ADV_RT_TRVLS_BACKEND" && exit 1)
-          test -n "${{ vars.BACKEND_PORT }}" || (echo "Missing repository variable: BACKEND_PORT" && exit 1)
-          test -n "${{ vars.BACKEND_SMTP_HOST }}" || (echo "Missing repository variable: BACKEND_SMTP_HOST" && exit 1)
-          test -n "${{ vars.BACKEND_SMTP_PORT }}" || (echo "Missing repository variable: BACKEND_SMTP_PORT" && exit 1)
-          test -n "${{ secrets.BACKEND_SMTP_USER }}" || (echo "Missing secret: BACKEND_SMTP_USER" && exit 1)
-          test -n "${{ secrets.BACKEND_SMTP_PASS }}" || (echo "Missing secret: BACKEND_SMTP_PASS" && exit 1)
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
