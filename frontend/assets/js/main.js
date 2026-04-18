@@ -1406,14 +1406,14 @@
                                  .html('<strong>Thank you!</strong> Your query has been submitted successfully. ' +
                                        'Our team will get back to you within 24 hours.<br>' +
                                        'For immediate assistance call ' +
-                                       '<a href="tel:+919625207876"><strong>+91-9625207876, +91-8894102786</strong></a>.')
+                                       '<a href="tel:+917807808527"><strong>+91-7807808527, +91-8894102786</strong></a>.')
                                  .show();
                     },
                     error: function (xhr) {
                         $btn.prop('disabled', false).html(origHtml);
                         var msg = (xhr.responseJSON && xhr.responseJSON.message)
                                   ? xhr.responseJSON.message
-                                  : 'Something went wrong. Please call us at +91-9625207876.';
+                                  : 'Something went wrong. Please call us at +91-7807808527.';
                         $feedback.css({ background: '#f8d7da', color: '#721c24', border: '1px solid #f5c6cb' })
                                  .text(msg)
                                  .show();
