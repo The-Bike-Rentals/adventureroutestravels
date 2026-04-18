@@ -1,0 +1,23 @@
+info:
+  name: send email
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{base_url}}/send-email"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "test@test.com",
+        "phone":"+91-12131231234",
+        "message":"I am testing"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
