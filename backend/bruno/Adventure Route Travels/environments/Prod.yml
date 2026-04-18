@@ -1,0 +1,4 @@
+name: Prod
+variables:
+  - name: base_url
+    value: https://adv-rt-trvls-backend-cyavdtcwb6e5aegs.canadacentral-01.azurewebsites.net

@@ -1,66 +1,53 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy PHP app to Azure Web App - adventureroutestravel
+name: Deploy Frontend to Azure Static Web Apps
 
 on:
   push:
     branches:
       - main
+    paths:
+      - frontend/**
+      - .github/workflows/main_adventureroutestravel.yml
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+    paths:
+      - frontend/**
+      - .github/workflows/main_adventureroutestravel.yml
   workflow_dispatch:
 
 jobs:
-  build:
+  build_and_deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
+    name: Build and Deploy Frontend
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - name: Inject backend API URL into config.js
+        run: |
+          test -n "${{ secrets.ART_API_URL }}" || (echo "Missing repo variable: ART_API_URL" && exit 1)
+          sed -i "s|__ART_API_URL__|${{ secrets.ART_API_URL }}|g" frontend/assets/js/config.js
+
+      - name: Deploy to Azure Static Web Apps
+        id: swa-deploy
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          php-version: '8.3'
+          azure_static_web_apps_api_token: ${{ secrets.ADV_RT_TRVLS_FRONTEND_SWS_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: upload
+          app_location: frontend
+          output_location: ""
 
-      - name: Check if composer.json exists
-        id: check_files
-        uses: andstor/file-existence-action@v1
-        with:
-          files: 'composer.json'
-
-      - name: Run composer install if composer.json exists
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
-
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: php-app
-          path: release.zip
-
-  deploy:
+  close_pull_request:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+    name: Close Pull Request Environment
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
+      - name: Close Pull Request Preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          name: php-app
-
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
-      
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v3
-        id: deploy-to-webapp
-        with:
-          app-name: 'adventureroutestravel'
-          slot-name: 'Production'
-          package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F1E449B3398F4F698A29D82DAF6D5FFB }}
+          azure_static_web_apps_api_token: ${{ secrets.ADV_RT_TRVLS_FRONTEND_SWS_TOKEN }}
+          action: close
