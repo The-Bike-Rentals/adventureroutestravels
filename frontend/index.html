@@ -124,7 +124,7 @@ var emailPat=/^(.+)@(.+)$/
 
 var specialChars="\\(\\)<>@,;:\\\\\\\"\\.\\[\\]"
 
-var validChars="\[^\\s" + Magical HimachalChars + "\]"
+var validChars="\[^\\s" + specialChars + "\]"
 
 var quotedUser="(\"[^\"]*\")"
 
@@ -393,7 +393,7 @@ function Validate(tt){
                         </nav>
                     </div>
                     <div class="header-right d-flex align-items-center gap-24">
-                        <div class="header-btn d-none d-sm-block">
+                        <div class="header-btn d-none d-xl-block">
                             <a href="travel-policy.html"  class="bd-primary-btn btn-style has-arrow is-bg radius-60">
                                 <span class="bd-primary-btn-arrow arrow-right"><i class="fa-regular fa-arrow-right"></i></span>
                                 <span class="bd-primary-btn-text">Policy</span>
@@ -635,42 +635,34 @@ Himachal Pradesh 171103 </a>
                 <div class=" row">
                     <div class="col-xl-12">
                         <div class="banner-search-wrapper banner-search-style-three full-width">
-                            <div class="banner-search-box">
-                                <div class="banner-search-form">
-                                    <div class="banner-search-field has-separator d-flex align-items-center gap-10">
-                                        <div class="banner-search-item banner-select">
-										 <form action="thankyou.php" onSubmit="return Validate(this)" method="post" name="form1">
-										 <div class="floating-form-input">
-                                            <input type="text" class="inputText" id="fullName" name="name" required="name">
-                                            <span class="floating-label">Full Name</span>
+                            <form action="#" method="post" name="form1" data-api-form onsubmit="return Validate(this)">
+                                <div class="banner-search-box">
+                                    <div class="banner-search-form">
+                                        <div class="banner-search-field has-separator d-flex align-items-center gap-10">
+                                            <div class="floating-form-input">
+                                                <input type="text" class="inputText" id="quoteName" name="name" required>
+                                                <span class="floating-label">Full Name</span>
+                                            </div>
                                         </div>
+                                        <div class="banner-search-field has-separator d-flex align-items-center gap-10">
+                                            <div class="floating-form-input">
+                                                <input type="text" class="inputText" id="quoteEmail" name="email" required>
+                                                <span class="floating-label">E-Mail</span>
+                                            </div>
+                                        </div>
+                                        <div class="banner-search-field d-flex align-items-center gap-10">
+                                            <div class="floating-form-input">
+                                                <input type="text" class="inputText" id="quoteMobile" name="mobile" required>
+                                                <span class="floating-label">Mobile</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="banner-search-field has-separator d-flex align-items-center gap-10">
-                                         <div class="floating-form-input">
-                                            <input type="text" class="inputText" id="fullName" name="email" required="email">
-                                            <span class="floating-label">E-Mail</span>
-                                        </div>
-                                    </div>
-                                    <div class="banner-search-field d-flex align-items-center gap-10">
-                                        <div class="floating-form-input">
-                                            <input type="text" class="inputText" id="fullName" name="mobile" required="mobile">
-                                            <span class="floating-label">Mobile</span>
-                                        </div>&nbsp;
+                                    <div class="banner-search-button">
+                                        <button type="submit" class="bd-btn btn-style radius-5">&nbsp;&nbsp;Submit&nbsp;&nbsp;</button>
                                     </div>
                                 </div>
-                                <div class="banner-search-button">
-                                    <button type="submit" class="bd-btn btn-style radius-5"><span>
-                                             </span>&nbsp;&nbsp;Submit&nbsp;&nbsp; </button>
-                                              </div>
-											  
-											  
-								 
-								</form>
-                            </div>
-						</div>
+                            </form>
                         </div>
-						
                     </div>
                 </div>
             </div>

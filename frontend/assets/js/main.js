@@ -1331,21 +1331,22 @@
   };
 
     /*======================================
-      PHP Form Migration — API-based email
+      Enquiry forms (form[data-api-form]) — sent via the email API
       API URL: set window.ART_API_URL before this script loads (via config.js),
       or it falls back to localhost for local development.
     ========================================*/
-    var ART_API_URL = ((window.ART_API_URL) || 'http://localhost:3010').replace(/\/$/, '');
+    var configuredApiUrl = window.ART_API_URL;
+    if (!configuredApiUrl || configuredApiUrl === '__ART_API_URL__') {
+        configuredApiUrl = 'http://localhost:3010';
+    }
+    var ART_API_URL = configuredApiUrl.replace(/\/$/, '');
 
     $(document).ready(function () {
-        $('form').each(function () {
+        $('form[data-api-form]').each(function () {
             var $form = $(this);
-            var action = ($form.attr('action') || '').trim();
-            if (!action.match(/\.php(\?.*)?$/i)) { return; }
-
-            // Neutralise the PHP action so a JS-disabled fallback is harmless
-            $form.attr('action', '#');
-            $form.removeAttr('onSubmit');
+            // Run the page's inline validator (Validate/Validate1) from our own submit handler
+            var validator = this.onsubmit;
+            this.onsubmit = null;
 
             // Insert a feedback message container right after the form
             if ($form.next('.art-feedback').length === 0) {
@@ -1354,14 +1355,16 @@
 
             $form.on('submit', function (e) {
                 e.preventDefault();
-                var $feedback = $form.next('.art-feedback');
-                var $btn      = $form.find('button[type="submit"], input[type="submit"]');
+                if (validator && validator.call(this, e) === false) { return; }
 
-                // Collect every named field into a key→value map
+                var $feedback = $form.next('.art-feedback');
+                var $btn      = $(this.elements).filter('button[type="submit"], input[type="submit"]');
+
+                // form.elements also includes fields associated with the form outside its DOM subtree
                 var fields = {};
-                $form.find('[name]').each(function () {
-                    var n = $(this).attr('name');
-                    var v = $(this).val();
+                $.each(this.elements, function (_, el) {
+                    var n = el.name;
+                    var v = $.trim($(el).val() || '');
                     if (n && v && v !== 'select') { fields[n] = v; }
                 });
 
@@ -1384,9 +1387,9 @@
                     message: msgLines.join('\n')
                 };
 
-                if (!payload.email && !payload.phone && !payload.message) {
+                if (!payload.email && !payload.phone) {
                     $feedback.css({ background: '#fff3cd', color: '#856404', border: '1px solid #ffc107' })
-                             .text('Please fill in the form before submitting.')
+                             .text('Please enter your email or mobile number before submitting.')
                              .show();
                     return;
                 }
@@ -1409,13 +1412,10 @@
                                        '<a href="tel:+917807808527"><strong>+91-7807808527, +91-9625207876</strong></a>.')
                                  .show();
                     },
-                    error: function (xhr) {
+                    error: function () {
                         $btn.prop('disabled', false).html(origHtml);
-                        var msg = (xhr.responseJSON && xhr.responseJSON.message)
-                                  ? xhr.responseJSON.message
-                                  : 'Something went wrong. Please call us at +91-7807808527.';
                         $feedback.css({ background: '#f8d7da', color: '#721c24', border: '1px solid #f5c6cb' })
-                                 .text(msg)
+                                 .text('Something went wrong. Please call us at +91-7807808527.')
                                  .show();
                     }
                 });

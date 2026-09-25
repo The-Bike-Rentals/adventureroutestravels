@@ -446,7 +446,7 @@ function Validate1(tt){
                             </div>
                         </div>
                          <div class="header-right d-flex align-items-center gap-24">
-                        <div class="header-btn d-none d-sm-block">
+                        <div class="header-btn d-none d-xl-block">
                             <a href="travel-policy.html" class="bd-primary-btn btn-style has-arrow is-bg radius-60">
                                 <span class="bd-primary-btn-arrow arrow-right"><i class="fa-regular fa-arrow-right"></i></span>
                                 <span class="bd-primary-btn-text">Policy</span>
@@ -593,28 +593,27 @@ Himachal Pradesh 171103 </a>
                                 <div class="sidebar-widget widget">
                                     <h6 class="sidebar-widget-title small mb-15">Get Customize Tour</h6>
                                   <div class="sidebar-booking">
-                                        <form class="sidebar-booking-form"  action="book-main-tour-itin.php" onSubmit="return Validate1(this)" method="post" name="form1" > 
-<input type="hidden"  name="desti" value="RajasthanS">
-<input type="hidden"  name="tourname" value="Jaipur Bikaner Jaisalmer Jodhpur " >
-<input type="hidden"  name="ndays" value="06  Nights / 07  Days " >
-                                            <div class="input-box">
-                                               <input type="text" class="form_control" placeholder="Name" name="name">
-                                            </div>
-                                            <div class="input-box">
-                                                <input type="text" class="form_control" placeholder="E-mail" name="email">
-                                            </div>
-                                            <div class="input-box">
-                                             <input type="text" class="form_control" placeholder="Mobile" name="mobile">
-                                            </div>
-                                            <div class="input-box">
-						 <strong>Travel Date</strong>
-                                             <input type="date" class="form_control"  name="tdate">
-                                            </div>			 
-								 
-                                            <div class="booking-btn">
-					    <button class="bd-btn btn-style radius-4 w-55">&nbsp;&nbsp;Send Now&nbsp;&nbsp;<span></span></button>
-                                            </div>
-                                        </form>
+                                      <form class="sidebar-booking-form" action="#" method="post" name="form1" data-api-form onsubmit="return Validate1(this)">
+                                          <input type="hidden" name="desti" value="RajasthanS">
+                                          <input type="hidden" name="tourname" value="Jaipur Bikaner Jaisalmer Jodhpur">
+                                          <input type="hidden" name="ndays" value="06 Nights / 07 Days">
+                                          <div class="input-box">
+                                              <input type="text" class="form_control" placeholder="Name" name="name">
+                                          </div>
+                                          <div class="input-box">
+                                              <input type="text" class="form_control" placeholder="E-mail" name="email">
+                                          </div>
+                                          <div class="input-box">
+                                              <input type="text" class="form_control" placeholder="Mobile" name="mobile">
+                                          </div>
+                                          <div class="input-box">
+                                              <strong>Travel Date</strong>
+                                              <input type="date" class="form_control" name="tdate">
+                                          </div>
+                                          <div class="booking-btn">
+                                              <button type="submit" class="bd-btn btn-style radius-4 w-55">&nbsp;&nbsp;Send Now&nbsp;&nbsp;</button>
+                                          </div>
+                                      </form>
                                     </div>
                                 </div>
                                
